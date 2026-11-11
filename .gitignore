@@ -1,0 +1,14 @@
+# Ignore system/temp files and duplicate backup folder
+Thumbs.db
+*.lnk
+~$*
+data/
+
+# Ignore the 7 raw >100MB video files (their HD720p <50MB *-web.mp4 versions are tracked and used by the webpage)
+2.小小說書人/113小小說書人得獎作品/801那些年我們一起追的女孩-佳作.mov
+2.小小說書人/113小小說書人得獎作品/802-失落的一角-佳作.mp4
+2.小小說書人/113小小說書人得獎作品/803查理與巧克力工廠-特優.mp4
+2.小小說書人/113小小說書人得獎作品/805神秘的魔法石-佳作.mp4
+2.小小說書人/113小小說書人得獎作品/806吹夢巨人-優等.mp4
+2.小小說書人/113小小說書人得獎作品/813詩魂-優等.mp4
+2.小小說書人/114小小說書人得獎作品/815被討厭的勇氣(特優).MOV

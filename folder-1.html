@@ -1,0 +1,822 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. 好讀周報（16週讀報三部曲）｜錦和高中 JINHE, YES! 閱讀磐石主題專區</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #E11D48;
+      --accent2: #FB7185;
+      --dark: #1E293B;
+      --slate: #475569;
+      --bg: #FFFDF7;
+      --gold: #FFB703;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: var(--bg);
+      background-image: radial-gradient(#CBD5E1 1.2px, transparent 1.2px);
+      background-size: 24px 24px;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 4px solid var(--dark);
+      padding: 0.75rem 1.5rem;
+      color: #fff;
+    }
+    .top-bar-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold);
+      color: var(--dark);
+      font-weight: 900;
+      font-size: 0.95rem;
+      text-decoration: none;
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      border: 3px solid var(--dark);
+      box-shadow: 3px 3px 0 #000;
+      transition: transform 0.15s;
+    }
+    .back-btn:hover {
+      transform: translate(-2px, -2px);
+      background: #FDE047;
+    }
+    .sub-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+    }
+    .sub-pill {
+      text-decoration: none;
+      color: #E2E8F0;
+      font-size: 0.82rem;
+      font-weight: 800;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,0.2);
+      transition: all 0.18s;
+    }
+    .sub-pill:hover {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+    }
+    .sub-pill.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: #fff;
+      box-shadow: 2px 2px 0 #000;
+    }
+    .hero {
+      max-width: 1240px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    .hero-card {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      border: 4px solid var(--dark);
+      border-radius: 28px;
+      box-shadow: 10px 10px 0 var(--dark);
+      padding: 2.2rem;
+      color: #fff;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: #fff;
+      color: var(--dark);
+      font-weight: 900;
+      font-size: 0.86rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      border: 2.5px solid var(--dark);
+      box-shadow: 3px 3px 0 var(--dark);
+      margin-bottom: 0.9rem;
+    }
+    .hero h1 {
+      font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
+    }
+    .hero p {
+      font-size: 1.02rem;
+      font-weight: 600;
+      opacity: 0.96;
+      margin-bottom: 1.4rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+    .cloud-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      background: var(--gold);
+      color: var(--dark);
+      font-weight: 900;
+      font-size: 1rem;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 999px;
+      border: 3px solid var(--dark);
+      box-shadow: 4px 4px 0 var(--dark);
+      transition: transform 0.15s;
+    }
+    .cloud-cta:hover {
+      transform: translate(-2px, -2px);
+      background: #FDE047;
+    }
+    .hero-img-box {
+      background: #fff;
+      border: 3.5px solid var(--dark);
+      border-radius: 20px;
+      padding: 0.7rem;
+      box-shadow: 6px 6px 0 var(--dark);
+      color: var(--dark);
+      transform: rotate(1.5deg);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .hero-img-box:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+    .hero-img-box img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 2px solid var(--dark);
+    }
+    .hero-img-cap {
+      font-size: 0.84rem;
+      font-weight: 800;
+      text-align: center;
+      margin-top: 0.45rem;
+    }
+    .stats-row {
+      max-width: 1240px;
+      margin: 0 auto 2.5rem;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.1rem;
+    }
+    .stat-box {
+      background: #fff;
+      border: 3px solid var(--dark);
+      border-radius: 18px;
+      box-shadow: 5px 5px 0 var(--dark);
+      padding: 1.1rem;
+      text-align: center;
+    }
+    .stat-emo { font-size: 1.8rem; }
+    .stat-val { font-family: 'Fredoka', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--accent); }
+    .stat-lbl { font-size: 0.88rem; font-weight: 800; color: var(--slate); }
+    .section {
+      max-width: 1240px;
+      margin: 0 auto 3.8rem;
+      padding: 0 1.5rem;
+    }
+    .sec-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .sec-head h2 {
+      font-size: 1.65rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1.4rem;
+    }
+    .v-card {
+      background: #fff;
+      border: 3px solid var(--dark);
+      border-radius: 20px;
+      box-shadow: 6px 6px 0 var(--dark);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s;
+    }
+    .v-card:hover {
+      transform: translateY(-5px);
+    }
+    .card-media {
+      position: relative;
+      height: 215px;
+      background: #0F172A;
+      border-bottom: 3px solid var(--dark);
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .card-media.video-wrap {
+      cursor: default;
+    }
+    .card-media img, .card-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s;
+    }
+    .v-card:hover .card-media img {
+      transform: scale(1.06);
+    }
+    .card-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255,255,255,0.95);
+      color: var(--dark);
+      border: 2px solid var(--dark);
+      border-radius: 999px;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.75rem;
+      font-weight: 900;
+    }
+    .zoom-badge {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: var(--dark);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.2rem 0.6rem;
+      border-radius: 99px;
+      opacity: 0.88;
+    }
+    .card-body {
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+    .card-body h3 {
+      font-size: 1.08rem;
+      font-weight: 900;
+      margin-bottom: 0.4rem;
+    }
+    .card-body p {
+      font-size: 0.86rem;
+      color: var(--slate);
+      font-weight: 600;
+      margin-bottom: 0.9rem;
+    }
+    .card-btn {
+      display: inline-block;
+      text-align: center;
+      text-decoration: none;
+      background: #F1F5F9;
+      color: var(--dark);
+      font-weight: 900;
+      font-size: 0.84rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 12px;
+      border: 2px solid var(--dark);
+      transition: background 0.15s;
+    }
+    .card-btn:hover {
+      background: var(--gold);
+    }
+    .search-box {
+      padding: 0.6rem 1.1rem;
+      border-radius: 999px;
+      border: 2.5px solid var(--dark);
+      font-size: 0.9rem;
+      font-weight: 700;
+      width: 280px;
+      outline: none;
+    }
+    .cat-group {
+      background: #fff;
+      border: 3px solid var(--dark);
+      border-radius: 20px;
+      box-shadow: 6px 6px 0 var(--dark);
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+    }
+    .cat-group-header {
+      background: var(--dark);
+      color: #fff;
+      padding: 0.85rem 1.3rem;
+      font-weight: 900;
+      font-size: 1.02rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cat-count {
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 0.78rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+    }
+    .cat-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 0.75rem;
+      padding: 1.1rem;
+    }
+    .cat-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.7rem 0.95rem;
+      border: 2px solid #E2E8F0;
+      border-radius: 14px;
+      transition: all 0.15s;
+    }
+    .cat-item:hover {
+      border-color: var(--dark);
+      background: #FFFBEB;
+      transform: translateY(-2px);
+    }
+    .cat-item-left {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      min-width: 0;
+    }
+    .cat-icon {
+      font-size: 1.45rem;
+      flex-shrink: 0;
+    }
+    .cat-name {
+      font-weight: 900;
+      font-size: 0.9rem;
+      color: var(--dark);
+      word-break: break-all;
+    }
+    .cat-meta {
+      font-size: 0.76rem;
+      color: var(--slate);
+      font-weight: 600;
+    }
+    .item-open {
+      flex-shrink: 0;
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 900;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 2px solid var(--dark);
+      background: #FEF08A;
+      color: var(--dark);
+    }
+    .item-open.cloud {
+      background: #E0F2FE;
+    }
+    .item-open:hover {
+      background: var(--gold);
+    }
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.88);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 1.5rem;
+    }
+    .modal.open { display: flex; }
+    .modal-box {
+      background: #fff;
+      border: 4px solid var(--dark);
+      border-radius: 22px;
+      max-width: 900px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .modal-img-wrap {
+      background: #0F172A;
+      text-align: center;
+      max-height: 70vh;
+    }
+    .modal-img-wrap img {
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+    }
+    .modal-foot {
+      padding: 1.1rem 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    footer {
+      background: var(--dark);
+      color: #fff;
+      text-align: center;
+      padding: 2.2rem 1.5rem;
+      border-top: 4px solid #000;
+    }
+    @media (max-width: 900px) {
+      .hero-card { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Navigation Bar with Return Button -->
+  <nav class="top-bar">
+    <div class="top-bar-inner">
+      <a href="jinhego-yes.html" class="back-btn">⬅️ 返回「JINHE, YES!」主頁</a>
+      <div class="sub-pills">
+        <a href='folder-1.html' class='sub-pill active'>1.好讀周報</a>
+<a href='folder-2.html' class='sub-pill '>2.小小說書人</a>
+<a href='folder-3.html' class='sub-pill '>3.主題書展推播</a>
+<a href='folder-4.html' class='sub-pill '>4.閱讀明信片</a>
+<a href='folder-5.html' class='sub-pill '>5.自編教材</a>
+<a href='folder-6.html' class='sub-pill '>6.創意閱讀</a>
+<a href='folder-7.html' class='sub-pill '>7.暑期閱讀海報展</a>
+<a href='folder-8.html' class='sub-pill '>8.跨域創新</a>
+<a href='folder-9.html' class='sub-pill '>9.RGP利用教育</a>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-card">
+      <div>
+        <span class="hero-badge">TOPIC 01｜E 閱智・批判思辨與媒體識讀</span>
+        <h1>🗞️ 1. 好讀周報（16週讀報三部曲）</h1>
+        <p>打破被動看報！錦和首創「專家講座輸入 ➔ 學生化身出題官設計誘答選項 ➔ 跨班連線 Kahoot! 空中挑戰賽」，搭配每週全校讀報有獎徵答！</p>
+        <div class="hero-actions">
+          <a href="https://drive.google.com/drive/folders/1-d3CjdkEVKEm982-ylNxUESc_l03uvxn?usp=sharing" target="_blank" class="cloud-cta">☁️ 開啟「1.好讀周報」Google 雲端資料夾 ↗</a>
+          <a href="jinhego-yes.html" class="back-btn" style="background:#fff;">🏠 返回閱讀磐石主頁</a>
+        </div>
+      </div>
+      <div class="hero-img-box" onclick="openModal('assets/img/image24.png', '1. 好讀周報（16週讀報三部曲）', '聯合報寫作教室專家入校「讀報筆記力」講座與跨班 Kahoot! 競賽')">
+        <img src="assets/img/image24.png" alt="1. 好讀周報（16週讀報三部曲）" />
+        <div class="hero-img-cap">📸 聯合報寫作教室專家入校「讀報筆記力」講座與跨班 Kahoot! 競賽（點圖放大）</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Key Metrics -->
+  <section class="stats-row">
+          <div class="stat-box">
+        <div class="stat-emo">📅</div>
+        <div class="stat-val">16 週</div>
+        <div class="stat-lbl">讀報三部曲完整教學閉環</div>
+      </div>      <div class="stat-box">
+        <div class="stat-emo">📰</div>
+        <div class="stat-val">34+ 期</div>
+        <div class="stat-lbl">114~115學年度好讀周報題庫</div>
+      </div>      <div class="stat-box">
+        <div class="stat-emo">🧠</div>
+        <div class="stat-val">出題官</div>
+        <div class="stat-lbl">八年級各班自主命題與誘答設計</div>
+      </div>      <div class="stat-box">
+        <div class="stat-emo">🏆</div>
+        <div class="stat-val">跨班PK</div>
+        <div class="stat-lbl">全學年同步連線 Kahoot! 爭鋒</div>
+      </div>
+  </section>
+
+  <!-- Visual Highlights Gallery -->
+  <section class="section">
+    <div class="sec-head">
+      <h2>📸 精選圖像、影音與作品成果展（點擊圖片可放大檢視）</h2>
+    </div>
+    <div class="cards-grid">
+            <div class="v-card" data-cat="">
+                <div class="card-media" onclick="openModal('0磐石送件/磐石活動照(錦和高中)/認真作筆記~讀報講座.jpg', '聯合報專家「讀報筆記力」講座（師生隨班共學）', '敏捷調整至10月初辦理！傳授 5W1H 新聞解構、圖表轉譯與九宮格筆記法，導師隨班觀摩同步增能！')">
+          <img src="0磐石送件/磐石活動照(錦和高中)/認真作筆記~讀報講座.jpg" alt="聯合報專家「讀報筆記力」講座（師生隨班共學）" loading="lazy" />
+          <span class="card-tag">首部曲｜專家輸入</span>
+          <span class="zoom-badge">🔍 點擊放大</span>
+        </div>
+        <div class="card-body">
+          <h3>聯合報專家「讀報筆記力」講座（師生隨班共學）</h3>
+          <p>敏捷調整至10月初辦理！傳授 5W1H 新聞解構、圖表轉譯與九宮格筆記法，導師隨班觀摩同步增能！</p>
+          <a href='0磐石送件/磐石活動照(錦和高中)/認真作筆記~讀報講座.jpg' target='_blank' class='card-btn'>📂 開啟檔案／前往連結 ↗</a>
+        </div>
+      </div>      <div class="v-card" data-cat="">
+                <div class="card-media" onclick="openModal('0磐石送件/磐石活動照(錦和高中)/讀報講座~七年級.jpg', '七年級讀報策略講座與重點摘要實作', '引導新生掌握新聞標題解讀與多文本比較策略，奠定長文閱讀基礎。')">
+          <img src="0磐石送件/磐石活動照(錦和高中)/讀報講座~七年級.jpg" alt="七年級讀報策略講座與重點摘要實作" loading="lazy" />
+          <span class="card-tag">策略扎根｜七年級讀報</span>
+          <span class="zoom-badge">🔍 點擊放大</span>
+        </div>
+        <div class="card-body">
+          <h3>七年級讀報策略講座與重點摘要實作</h3>
+          <p>引導新生掌握新聞標題解讀與多文本比較策略，奠定長文閱讀基礎。</p>
+          <a href='0磐石送件/磐石活動照(錦和高中)/讀報講座~七年級.jpg' target='_blank' class='card-btn'>📂 開啟檔案／前往連結 ↗</a>
+        </div>
+      </div>      <div class="v-card" data-cat="">
+                <div class="card-media" onclick="openModal('0磐石送件/磐石活動照(錦和高中)/雲端PK~讀報挑戰賽.jpg', '圖書股長培力、學生化身出題官 ＆ 跨班雲端 PK 讀報挑戰賽', '各班每週輪值不同版面，小組討論設計具備「誘答力」的素養題，期末全學年連線同步搶答！')">
+          <img src="0磐石送件/磐石活動照(錦和高中)/雲端PK~讀報挑戰賽.jpg" alt="圖書股長培力、學生化身出題官 ＆ 跨班雲端 PK 讀報挑戰賽" loading="lazy" />
+          <span class="card-tag">二部曲＆三部曲｜出題與競賽</span>
+          <span class="zoom-badge">🔍 點擊放大</span>
+        </div>
+        <div class="card-body">
+          <h3>圖書股長培力、學生化身出題官 ＆ 跨班雲端 PK 讀報挑戰賽</h3>
+          <p>各班每週輪值不同版面，小組討論設計具備「誘答力」的素養題，期末全學年連線同步搶答！</p>
+          <a href='0磐石送件/磐石活動照(錦和高中)/雲端PK~讀報挑戰賽.jpg' target='_blank' class='card-btn'>📂 開啟檔案／前往連結 ↗</a>
+        </div>
+      </div>      <div class="v-card" data-cat="">
+                <div class="card-media" onclick="openModal('0磐石送件/磐石活動照(錦和高中)/晨間讀報現況.jpg', '班級晨間寧靜讀報與每週有獎徵答', '國中部七、八、九年級全面參與！結合班級讀報與圖書館徵答箱，培養關心國際時事的公民習慣。')">
+          <img src="0磐石送件/磐石活動照(錦和高中)/晨間讀報現況.jpg" alt="班級晨間寧靜讀報與每週有獎徵答" loading="lazy" />
+          <span class="card-tag">全校常規｜晨間讀報</span>
+          <span class="zoom-badge">🔍 點擊放大</span>
+        </div>
+        <div class="card-body">
+          <h3>班級晨間寧靜讀報與每週有獎徵答</h3>
+          <p>國中部七、八、九年級全面參與！結合班級讀報與圖書館徵答箱，培養關心國際時事的公民習慣。</p>
+          <a href='0磐石送件/磐石活動照(錦和高中)/晨間讀報現況.jpg' target='_blank' class='card-btn'>📂 開啟檔案／前往連結 ↗</a>
+        </div>
+      </div>      <div class="v-card" data-cat="">
+                <div class="card-media" onclick="openModal('assets/img/image25.png', '八年級讀報出題官小組討論與 Kahoot! 實況', '從「找答案的人」升格為「出題目的人」，深度理解新聞脈絡與邏輯陷阱！')">
+          <img src="assets/img/image25.png" alt="八年級讀報出題官小組討論與 Kahoot! 實況" loading="lazy" />
+          <span class="card-tag">課堂實錄｜自主命題</span>
+          <span class="zoom-badge">🔍 點擊放大</span>
+        </div>
+        <div class="card-body">
+          <h3>八年級讀報出題官小組討論與 Kahoot! 實況</h3>
+          <p>從「找答案的人」升格為「出題目的人」，深度理解新聞脈絡與邏輯陷阱！</p>
+          <a href='assets/img/image25.png' target='_blank' class='card-btn'>📂 開啟檔案／前往連結 ↗</a>
+        </div>
+      </div>      <div class="v-card" data-cat="">
+                <div class="card-media" onclick="openModal('assets/img/image12.png', '《閱讀護照》讀報心得九宮格（重下副標＋關鍵詞）', '學生剪貼好讀周報文章，練習「重新為新聞下副標題」並提煉「3個網路查證關鍵詞」！')">
+          <img src="assets/img/image12.png" alt="《閱讀護照》讀報心得九宮格（重下副標＋關鍵詞）" loading="lazy" />
+          <span class="card-tag">護照實作｜讀報九宮格</span>
+          <span class="zoom-badge">🔍 點擊放大</span>
+        </div>
+        <div class="card-body">
+          <h3>《閱讀護照》讀報心得九宮格（重下副標＋關鍵詞）</h3>
+          <p>學生剪貼好讀周報文章，練習「重新為新聞下副標題」並提煉「3個網路查證關鍵詞」！</p>
+          <a href='1.好讀周報/115好讀周報/889/讀報有獎徵答889(0907-0911).pdf' target='_blank' class='card-btn'>📂 開啟檔案／前往連結 ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Folder Content List -->
+  <section class="section">
+    <div class="sec-head">
+      <h2>🗂️ 資料夾完整內容清單（點擊即可預覽檔案或前往雲端硬碟）</h2>
+      <input type="text" class="search-box" placeholder="🔍 搜尋清單檔案名稱..." oninput="filterList(this.value)" />
+    </div>
+    <div id="catalogContainer">
+            <div class="cat-group">
+        <div class="cat-group-header">
+          <span>📌 115學年度《好讀周報》每週徵答題目與學習單（889期～896期）</span>
+          <span class="cat-count">共 9 項精選檔案</span>
+        </div>
+        <div class="cat-list">
+                  <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">📄</span>
+            <div>
+              <div class="cat-name">889期 讀報有獎徵答889(0907-0911).pdf</div>
+              <div class="cat-meta">115好讀周報 / 889期</div>
+            </div>
+          </div>
+          <a href='1.好讀周報/115好讀周報/889/讀報有獎徵答889(0907-0911).pdf' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">📄</span>
+            <div>
+              <div class="cat-name">890期 讀報有獎徵答890(0914-0918).pdf</div>
+              <div class="cat-meta">115好讀周報 / 890期</div>
+            </div>
+          </div>
+          <a href='1.好讀周報/115好讀周報/890/讀報有獎徵答890(0914-0918).pdf' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">📄</span>
+            <div>
+              <div class="cat-name">891期 讀報有獎徵答891(0921-0924).pdf</div>
+              <div class="cat-meta">115好讀周報 / 891期</div>
+            </div>
+          </div>
+          <a href='1.好讀周報/115好讀周報/891/讀報有獎徵答891(0921-0924).pdf' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">📄</span>
+            <div>
+              <div class="cat-name">892期 讀報有獎徵答892(0929-1002).pdf</div>
+              <div class="cat-meta">115好讀周報 / 892期</div>
+            </div>
+          </div>
+          <a href='1.好讀周報/115好讀周報/892/讀報有獎徵答892(0929-1002).pdf' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">📄</span>
+            <div>
+              <div class="cat-name">893期 讀報有獎徵答893(1005-1008).pdf</div>
+              <div class="cat-meta">115好讀周報 / 893期</div>
+            </div>
+          </div>
+          <a href='1.好讀周報/115好讀周報/893/讀報有獎徵答893(1005-1008).pdf' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">📄</span>
+            <div>
+              <div class="cat-name">894期 讀報有獎徵答894(1012-1016).pdf</div>
+              <div class="cat-meta">115好讀周報 / 894期</div>
+            </div>
+          </div>
+          <a href='1.好讀周報/115好讀周報/894/讀報有獎徵答894(1012-1016).pdf' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">📄</span>
+            <div>
+              <div class="cat-name">895期 讀報有獎徵答895(1019-1023).pdf</div>
+              <div class="cat-meta">115好讀周報 / 895期</div>
+            </div>
+          </div>
+          <a href='1.好讀周報/115好讀周報/895/讀報有獎徵答895(1019-1023).pdf' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">📄</span>
+            <div>
+              <div class="cat-name">896期 讀報有獎徵答896(1027-1030).pdf</div>
+              <div class="cat-meta">115好讀周報 / 896期</div>
+            </div>
+          </div>
+          <a href='1.好讀周報/115好讀周報/896/讀報有獎徵答896(1027-1030).pdf' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">🏅</span>
+            <div>
+              <div class="cat-name">115-1好讀週報得獎名單(889-893期).docx</div>
+              <div class="cat-meta">115好讀周報｜得獎名單</div>
+            </div>
+          </div>
+          <a href='1.好讀周報/115好讀周報/115-1好讀週報得獎名單(889-893期).docx' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>
+        </div>
+      </div>      <div class="cat-group">
+        <div class="cat-group-header">
+          <span>📌 114學年度《好讀周報》完整題庫與解答彙編（838期～872期）</span>
+          <span class="cat-count">共 8 項精選檔案</span>
+        </div>
+        <div class="cat-list">
+                  <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">📑</span>
+            <div>
+              <div class="cat-name">114學年度好讀周報 838-842 期解答.pdf</div>
+              <div class="cat-meta">114好讀周報｜解答彙編</div>
+            </div>
+          </div>
+          <a href='1.好讀周報/114好讀周報/114學年度好讀周報838-842期解答.pdf' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">📑</span>
+            <div>
+              <div class="cat-name">114學年度好讀周報 843-847 期解答.pdf</div>
+              <div class="cat-meta">114好讀周報｜解答彙編</div>
+            </div>
+          </div>
+          <a href='1.好讀周報/114好讀周報/114學年度好讀周報843-847期解答.pdf' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">📑</span>
+            <div>
+              <div class="cat-name">114學年度好讀周報 848-853 期解答.pdf</div>
+              <div class="cat-meta">114好讀周報｜解答彙編</div>
+            </div>
+          </div>
+          <a href='1.好讀周報/114好讀周報/114學年度好讀周報848-853期解答.pdf' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">📰</span>
+            <div>
+              <div class="cat-name">838期 讀報有獎徵答單838(0908-0912).pdf</div>
+              <div class="cat-meta">114好讀周報 / 838期</div>
+            </div>
+          </div>
+          <a href='1.好讀周報/114好讀周報/838/讀報有獎徵答單838(0908-0912).pdf' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">📰</span>
+            <div>
+              <div class="cat-name">850期 讀報有獎徵答單850(1201-1205).pdf</div>
+              <div class="cat-meta">114好讀周報 / 850期</div>
+            </div>
+          </div>
+          <a href='1.好讀周報/114好讀周報/850/讀報有獎徵答單850(1201-1205).pdf' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">📰</span>
+            <div>
+              <div class="cat-name">865期 讀報有獎徵答單865(0323-0327).pdf</div>
+              <div class="cat-meta">114好讀周報 / 865期</div>
+            </div>
+          </div>
+          <a href='1.好讀周報/114好讀周報/865/讀報有獎徵答單865(0323-0327).pdf' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">📰</span>
+            <div>
+              <div class="cat-name">870期 讀報有獎徵答單870(0427-0430).pdf</div>
+              <div class="cat-meta">114好讀周報 / 870期</div>
+            </div>
+          </div>
+          <a href='1.好讀周報/114好讀周報/870/讀報有獎徵答單870(0427-0430).pdf' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">📰</span>
+            <div>
+              <div class="cat-name">872期 讀報有獎徵答單872(0511-0515).pdf</div>
+              <div class="cat-meta">114好讀周報 / 872期</div>
+            </div>
+          </div>
+          <a href='1.好讀周報/114好讀周報/872/讀報有獎徵答單872(0511-0515).pdf' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="modal" id="imgModal" onclick="if(event.target===this) closeModal()">
+    <div class="modal-box">
+      <div class="modal-img-wrap">
+        <img id="mImg" src="" alt="預覽" />
+      </div>
+      <div class="modal-foot">
+        <div>
+          <h3 id="mTitle" style="font-size:1.15rem; font-weight:900;"></h3>
+          <p id="mDesc" style="font-size:0.88rem; color:var(--slate); font-weight:600;"></p>
+        </div>
+        <button class="back-btn" onclick="closeModal()" style="cursor:pointer;">✖ 關閉</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p style="font-weight:900; font-size:1.05rem; margin-bottom:0.6rem;">新北市立錦和高級中學（國中部）｜錦和閱世，JINHE, YES!</p>
+    <div style="display:flex; justify-content:center; gap:0.8rem; flex-wrap:wrap; margin-top:0.8rem;">
+      <a href="jinhego-yes.html" class="back-btn">⬅️ 返回 JINHE, YES! 主頁</a>
+      <a href="https://drive.google.com/drive/folders/1-d3CjdkEVKEm982-ylNxUESc_l03uvxn?usp=sharing" target="_blank" class="cloud-cta">☁️ 開啟「1.好讀周報」Google 雲端資料夾 ↗</a>
+    </div>
+  </footer>
+
+  <script>
+    function openModal(src, title, desc) {
+      document.getElementById('mImg').src = src;
+      document.getElementById('mTitle').textContent = title;
+      document.getElementById('mDesc').textContent = desc;
+      document.getElementById('imgModal').classList.add('open');
+    }
+    function closeModal() {
+      document.getElementById('imgModal').classList.remove('open');
+    }
+    function filterList(q) {
+      const kw = q.trim().toLowerCase();
+      document.querySelectorAll('.cat-item').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(kw) ? 'flex' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

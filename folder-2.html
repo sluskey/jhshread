@@ -1,0 +1,753 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. 小小說書人（國文×表藝立體展演）｜錦和高中 JINHE, YES! 閱讀磐石主題專區</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #D97706;
+      --accent2: #F59E0B;
+      --dark: #1E293B;
+      --slate: #475569;
+      --bg: #FFFDF7;
+      --gold: #FFB703;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: var(--bg);
+      background-image: radial-gradient(#CBD5E1 1.2px, transparent 1.2px);
+      background-size: 24px 24px;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 4px solid var(--dark);
+      padding: 0.75rem 1.5rem;
+      color: #fff;
+    }
+    .top-bar-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold);
+      color: var(--dark);
+      font-weight: 900;
+      font-size: 0.95rem;
+      text-decoration: none;
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      border: 3px solid var(--dark);
+      box-shadow: 3px 3px 0 #000;
+      transition: transform 0.15s;
+    }
+    .back-btn:hover {
+      transform: translate(-2px, -2px);
+      background: #FDE047;
+    }
+    .sub-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+    }
+    .sub-pill {
+      text-decoration: none;
+      color: #E2E8F0;
+      font-size: 0.82rem;
+      font-weight: 800;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,0.2);
+      transition: all 0.18s;
+    }
+    .sub-pill:hover {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+    }
+    .sub-pill.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: #fff;
+      box-shadow: 2px 2px 0 #000;
+    }
+    .hero {
+      max-width: 1240px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    .hero-card {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      border: 4px solid var(--dark);
+      border-radius: 28px;
+      box-shadow: 10px 10px 0 var(--dark);
+      padding: 2.2rem;
+      color: #fff;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: #fff;
+      color: var(--dark);
+      font-weight: 900;
+      font-size: 0.86rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      border: 2.5px solid var(--dark);
+      box-shadow: 3px 3px 0 var(--dark);
+      margin-bottom: 0.9rem;
+    }
+    .hero h1 {
+      font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
+    }
+    .hero p {
+      font-size: 1.02rem;
+      font-weight: 600;
+      opacity: 0.96;
+      margin-bottom: 1.4rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+    .cloud-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      background: var(--gold);
+      color: var(--dark);
+      font-weight: 900;
+      font-size: 1rem;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 999px;
+      border: 3px solid var(--dark);
+      box-shadow: 4px 4px 0 var(--dark);
+      transition: transform 0.15s;
+    }
+    .cloud-cta:hover {
+      transform: translate(-2px, -2px);
+      background: #FDE047;
+    }
+    .hero-img-box {
+      background: #fff;
+      border: 3.5px solid var(--dark);
+      border-radius: 20px;
+      padding: 0.7rem;
+      box-shadow: 6px 6px 0 var(--dark);
+      color: var(--dark);
+      transform: rotate(1.5deg);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .hero-img-box:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+    .hero-img-box img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 2px solid var(--dark);
+    }
+    .hero-img-cap {
+      font-size: 0.84rem;
+      font-weight: 800;
+      text-align: center;
+      margin-top: 0.45rem;
+    }
+    .stats-row {
+      max-width: 1240px;
+      margin: 0 auto 2.5rem;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.1rem;
+    }
+    .stat-box {
+      background: #fff;
+      border: 3px solid var(--dark);
+      border-radius: 18px;
+      box-shadow: 5px 5px 0 var(--dark);
+      padding: 1.1rem;
+      text-align: center;
+    }
+    .stat-emo { font-size: 1.8rem; }
+    .stat-val { font-family: 'Fredoka', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--accent); }
+    .stat-lbl { font-size: 0.88rem; font-weight: 800; color: var(--slate); }
+    .section {
+      max-width: 1240px;
+      margin: 0 auto 3.8rem;
+      padding: 0 1.5rem;
+    }
+    .sec-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .sec-head h2 {
+      font-size: 1.65rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1.4rem;
+    }
+    .v-card {
+      background: #fff;
+      border: 3px solid var(--dark);
+      border-radius: 20px;
+      box-shadow: 6px 6px 0 var(--dark);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s;
+    }
+    .v-card:hover {
+      transform: translateY(-5px);
+    }
+    .card-media {
+      position: relative;
+      height: 215px;
+      background: #0F172A;
+      border-bottom: 3px solid var(--dark);
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .card-media.video-wrap {
+      cursor: default;
+    }
+    .card-media img, .card-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s;
+    }
+    .v-card:hover .card-media img {
+      transform: scale(1.06);
+    }
+    .card-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255,255,255,0.95);
+      color: var(--dark);
+      border: 2px solid var(--dark);
+      border-radius: 999px;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.75rem;
+      font-weight: 900;
+    }
+    .zoom-badge {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: var(--dark);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.2rem 0.6rem;
+      border-radius: 99px;
+      opacity: 0.88;
+    }
+    .card-body {
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+    .card-body h3 {
+      font-size: 1.08rem;
+      font-weight: 900;
+      margin-bottom: 0.4rem;
+    }
+    .card-body p {
+      font-size: 0.86rem;
+      color: var(--slate);
+      font-weight: 600;
+      margin-bottom: 0.9rem;
+    }
+    .card-btn {
+      display: inline-block;
+      text-align: center;
+      text-decoration: none;
+      background: #F1F5F9;
+      color: var(--dark);
+      font-weight: 900;
+      font-size: 0.84rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 12px;
+      border: 2px solid var(--dark);
+      transition: background 0.15s;
+    }
+    .card-btn:hover {
+      background: var(--gold);
+    }
+    .search-box {
+      padding: 0.6rem 1.1rem;
+      border-radius: 999px;
+      border: 2.5px solid var(--dark);
+      font-size: 0.9rem;
+      font-weight: 700;
+      width: 280px;
+      outline: none;
+    }
+    .cat-group {
+      background: #fff;
+      border: 3px solid var(--dark);
+      border-radius: 20px;
+      box-shadow: 6px 6px 0 var(--dark);
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+    }
+    .cat-group-header {
+      background: var(--dark);
+      color: #fff;
+      padding: 0.85rem 1.3rem;
+      font-weight: 900;
+      font-size: 1.02rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cat-count {
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 0.78rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+    }
+    .cat-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 0.75rem;
+      padding: 1.1rem;
+    }
+    .cat-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.7rem 0.95rem;
+      border: 2px solid #E2E8F0;
+      border-radius: 14px;
+      transition: all 0.15s;
+    }
+    .cat-item:hover {
+      border-color: var(--dark);
+      background: #FFFBEB;
+      transform: translateY(-2px);
+    }
+    .cat-item-left {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      min-width: 0;
+    }
+    .cat-icon {
+      font-size: 1.45rem;
+      flex-shrink: 0;
+    }
+    .cat-name {
+      font-weight: 900;
+      font-size: 0.9rem;
+      color: var(--dark);
+      word-break: break-all;
+    }
+    .cat-meta {
+      font-size: 0.76rem;
+      color: var(--slate);
+      font-weight: 600;
+    }
+    .item-open {
+      flex-shrink: 0;
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 900;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 2px solid var(--dark);
+      background: #FEF08A;
+      color: var(--dark);
+    }
+    .item-open.cloud {
+      background: #E0F2FE;
+    }
+    .item-open:hover {
+      background: var(--gold);
+    }
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.88);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 1.5rem;
+    }
+    .modal.open { display: flex; }
+    .modal-box {
+      background: #fff;
+      border: 4px solid var(--dark);
+      border-radius: 22px;
+      max-width: 900px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .modal-img-wrap {
+      background: #0F172A;
+      text-align: center;
+      max-height: 70vh;
+    }
+    .modal-img-wrap img {
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+    }
+    .modal-foot {
+      padding: 1.1rem 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    footer {
+      background: var(--dark);
+      color: #fff;
+      text-align: center;
+      padding: 2.2rem 1.5rem;
+      border-top: 4px solid #000;
+    }
+    @media (max-width: 900px) {
+      .hero-card { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Navigation Bar with Return Button -->
+  <nav class="top-bar">
+    <div class="top-bar-inner">
+      <a href="jinhego-yes.html" class="back-btn">⬅️ 返回「JINHE, YES!」主頁</a>
+      <div class="sub-pills">
+        <a href='folder-1.html' class='sub-pill '>1.好讀周報</a>
+<a href='folder-2.html' class='sub-pill active'>2.小小說書人</a>
+<a href='folder-3.html' class='sub-pill '>3.主題書展推播</a>
+<a href='folder-4.html' class='sub-pill '>4.閱讀明信片</a>
+<a href='folder-5.html' class='sub-pill '>5.自編教材</a>
+<a href='folder-6.html' class='sub-pill '>6.創意閱讀</a>
+<a href='folder-7.html' class='sub-pill '>7.暑期閱讀海報展</a>
+<a href='folder-8.html' class='sub-pill '>8.跨域創新</a>
+<a href='folder-9.html' class='sub-pill '>9.RGP利用教育</a>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-card">
+      <div>
+        <span class="hero-badge">TOPIC 02｜Y 閱己 × E 閱智・長篇結構拆解與口語表達</span>
+        <h1>🎭 2. 小小說書人（國文×表藝立體展演）</h1>
+        <p>面對萬字長篇小說不再害怕！八年級學生透過「情節故事山」拆解主角內在衝突，將文字改編為 3～5 分鐘舞台劇與微電影！</p>
+        <div class="hero-actions">
+          <a href="https://drive.google.com/drive/folders/18kJ3pmYuSlWHHko6imHBF__T2S9OiL4c?usp=sharing" target="_blank" class="cloud-cta">☁️ 開啟「2.小小說書人」Google 雲端資料夾 ↗</a>
+          <a href="jinhego-yes.html" class="back-btn" style="background:#fff;">🏠 返回閱讀磐石主頁</a>
+        </div>
+      </div>
+      <div class="hero-img-box" onclick="openModal('assets/img/image21.png', '2. 小小說書人（國文×表藝立體展演）', '八年級小小說書人獲獎作品與「情節故事山」劇本拆解現場')">
+        <img src="assets/img/image21.png" alt="2. 小小說書人（國文×表藝立體展演）" />
+        <div class="hero-img-cap">📸 八年級小小說書人獲獎作品與「情節故事山」劇本拆解現場（點圖放大）</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Key Metrics -->
+  <section class="stats-row">
+          <div class="stat-box">
+        <div class="stat-emo">🎬</div>
+        <div class="stat-val">10 部</div>
+        <div class="stat-lbl">113~114學年度得獎影音全收錄</div>
+      </div>      <div class="stat-box">
+        <div class="stat-emo">⛰️</div>
+        <div class="stat-val">故事山</div>
+        <div class="stat-lbl">開端➔發展➔轉折➔高潮➔結局</div>
+      </div>      <div class="stat-box">
+        <div class="stat-emo">🏆</div>
+        <div class="stat-val">815 / 803</div>
+        <div class="stat-lbl">《被討厭的勇氣》《巧克力工廠》特優</div>
+      </div>      <div class="stat-box">
+        <div class="stat-emo">🤝</div>
+        <div class="stat-val">國文×表藝</div>
+        <div class="stat-lbl">跨領域正式課程協同教學</div>
+      </div>
+  </section>
+
+  <!-- Visual Highlights Gallery -->
+  <section class="section">
+    <div class="sec-head">
+      <h2>📸 精選圖像、影音與作品成果展（點擊圖片可放大檢視）</h2>
+    </div>
+    <div class="cards-grid">
+            <div class="v-card" data-cat="">
+                <div class="card-media video-wrap">
+          <video src="2.小小說書人/114小小說書人得獎作品/815被討厭的勇氣-特優-web.mp4" controls preload="metadata" playsinline></video>
+          <span class="card-tag">🏆 114特優｜815班</span>
+        </div>
+        <div class="card-body">
+          <h3>815班《被討厭的勇氣》— 課題分離戲劇展演（點擊直接播放）</h3>
+          <p>將阿德勒心理學哲學對話轉化為國中生人際情境劇，精準演繹「課題分離」的自我悅納精神！</p>
+          <a href='2.小小說書人/114小小說書人得獎作品/815被討厭的勇氣-特優-web.mp4' target='_blank' class='card-btn'>📂 開啟檔案／前往連結 ↗</a>
+        </div>
+      </div>      <div class="v-card" data-cat="">
+                <div class="card-media video-wrap">
+          <video src="2.小小說書人/113小小說書人得獎作品/803查理與巧克力工廠-特優-web.mp4" controls preload="metadata" playsinline></video>
+          <span class="card-tag">🏆 113特優｜803班</span>
+        </div>
+        <div class="card-body">
+          <h3>803班《查理與巧克力工廠》— 奇幻說書舞台（點擊直接播放）</h3>
+          <p>生動還原威利・旺卡巧克力工廠的奇幻試煉，以豐富肢體語言與道具展現善良與謙遜的價值！</p>
+          <a href='2.小小說書人/113小小說書人得獎作品/803查理與巧克力工廠-特優-web.mp4' target='_blank' class='card-btn'>📂 開啟檔案／前往連結 ↗</a>
+        </div>
+      </div>      <div class="v-card" data-cat="">
+                <div class="card-media video-wrap">
+          <video src="2.小小說書人/114小小說書人得獎作品/812 -天官賜福(優等).mp4" controls preload="metadata" playsinline></video>
+          <span class="card-tag">🥇 114優等｜812班</span>
+        </div>
+        <div class="card-body">
+          <h3>812班《天官賜福》— 小組說書展演（點擊直接播放）</h3>
+          <p>學生自主選讀長篇小說，提煉核心人物抉擇與情節高潮，展現極具渲染力的舞台魅力！</p>
+          <a href='2.小小說書人/114小小說書人得獎作品/812 -天官賜福(優等).mp4' target='_blank' class='card-btn'>📂 開啟檔案／前往連結 ↗</a>
+        </div>
+      </div>      <div class="v-card" data-cat="">
+                <div class="card-media video-wrap">
+          <video src="2.小小說書人/113小小說書人得獎作品/806吹夢巨人-優等-web.mp4" controls preload="metadata" playsinline></video>
+          <span class="card-tag">🥇 113優等｜806班</span>
+        </div>
+        <div class="card-body">
+          <h3>806班《吹夢巨人 BFG》— 勇氣與友誼展演（點擊直接播放）</h3>
+          <p>透過高低反差角色走位與聲音表情，詮釋孤兒蘇菲與好心眼巨人攜手改變世界的奇幻旅程！</p>
+          <a href='2.小小說書人/113小小說書人得獎作品/806吹夢巨人-優等-web.mp4' target='_blank' class='card-btn'>📂 開啟檔案／前往連結 ↗</a>
+        </div>
+      </div>      <div class="v-card" data-cat="">
+                <div class="card-media video-wrap">
+          <video src="2.小小說書人/113小小說書人得獎作品/813詩魂-優等-web.mp4" controls preload="metadata" playsinline></video>
+          <span class="card-tag">🥇 113優等｜813班</span>
+        </div>
+        <div class="card-body">
+          <h3>813班《詩魂》— 古典詩詞奇幻穿越說書（點擊直接播放）</h3>
+          <p>扣合《國文小尖兵》唐宋詩詞底蘊，帶領觀眾走進詩魂的世界，感受文字背後的熱血與壯志！</p>
+          <a href='2.小小說書人/113小小說書人得獎作品/813詩魂-優等-web.mp4' target='_blank' class='card-btn'>📂 開啟檔案／前往連結 ↗</a>
+        </div>
+      </div>      <div class="v-card" data-cat="">
+                <div class="card-media video-wrap">
+          <video src="2.小小說書人/114小小說書人得獎作品/818-再見宣言(佳作).mp4" controls preload="metadata" playsinline></video>
+          <span class="card-tag">🎖️ 114佳作｜818班</span>
+        </div>
+        <div class="card-body">
+          <h3>818班《再見宣言》— 青春成長說書展演（點擊直接播放）</h3>
+          <p>以流暢敘事與默契配合演繹青春期自我探索與告別迷惘的故事。</p>
+          <a href='2.小小說書人/114小小說書人得獎作品/818-再見宣言(佳作).mp4' target='_blank' class='card-btn'>📂 開啟檔案／前往連結 ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Folder Content List -->
+  <section class="section">
+    <div class="sec-head">
+      <h2>🗂️ 資料夾完整內容清單（點擊即可預覽檔案或前往雲端硬碟）</h2>
+      <input type="text" class="search-box" placeholder="🔍 搜尋清單檔案名稱..." oninput="filterList(this.value)" />
+    </div>
+    <div id="catalogContainer">
+            <div class="cat-group">
+        <div class="cat-group-header">
+          <span>🎬 114學年度「小小說書人」得獎影音作品清單</span>
+          <span class="cat-count">共 4 項精選檔案</span>
+        </div>
+        <div class="cat-list">
+                  <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">🎥</span>
+            <div>
+              <div class="cat-name">815被討厭的勇氣 (特優)</div>
+              <div class="cat-meta">114小小說書人得獎作品｜特優</div>
+            </div>
+          </div>
+          <a href='2.小小說書人/114小小說書人得獎作品/815被討厭的勇氣-特優-web.mp4' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">🎥</span>
+            <div>
+              <div class="cat-name">812 -天官賜福 (優等).mp4</div>
+              <div class="cat-meta">114小小說書人得獎作品｜優等</div>
+            </div>
+          </div>
+          <a href='2.小小說書人/114小小說書人得獎作品/812 -天官賜福(優等).mp4' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">🎥</span>
+            <div>
+              <div class="cat-name">815 -換身 (佳作).MP4</div>
+              <div class="cat-meta">114小小說書人得獎作品｜佳作</div>
+            </div>
+          </div>
+          <a href='2.小小說書人/114小小說書人得獎作品/815 -換身(佳作).MP4' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">🎥</span>
+            <div>
+              <div class="cat-name">818-再見宣言 (佳作).mp4</div>
+              <div class="cat-meta">114小小說書人得獎作品｜佳作</div>
+            </div>
+          </div>
+          <a href='2.小小說書人/114小小說書人得獎作品/818-再見宣言(佳作).mp4' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>
+        </div>
+      </div>      <div class="cat-group">
+        <div class="cat-group-header">
+          <span>🎬 113學年度「小小說書人」得獎影音作品清單</span>
+          <span class="cat-count">共 6 項精選檔案</span>
+        </div>
+        <div class="cat-list">
+                  <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">🎥</span>
+            <div>
+              <div class="cat-name">803查理與巧克力工廠-特優</div>
+              <div class="cat-meta">113小小說書人得獎作品｜特優</div>
+            </div>
+          </div>
+          <a href='2.小小說書人/113小小說書人得獎作品/803查理與巧克力工廠-特優-web.mp4' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">🎥</span>
+            <div>
+              <div class="cat-name">806吹夢巨人-優等</div>
+              <div class="cat-meta">113小小說書人得獎作品｜優等</div>
+            </div>
+          </div>
+          <a href='2.小小說書人/113小小說書人得獎作品/806吹夢巨人-優等-web.mp4' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">🎥</span>
+            <div>
+              <div class="cat-name">813詩魂-優等</div>
+              <div class="cat-meta">113小小說書人得獎作品｜優等</div>
+            </div>
+          </div>
+          <a href='2.小小說書人/113小小說書人得獎作品/813詩魂-優等-web.mp4' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">🎥</span>
+            <div>
+              <div class="cat-name">805神秘的魔法石-佳作</div>
+              <div class="cat-meta">113小小說書人得獎作品｜佳作</div>
+            </div>
+          </div>
+          <a href='2.小小說書人/113小小說書人得獎作品/805神秘的魔法石-佳作-web.mp4' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">🎥</span>
+            <div>
+              <div class="cat-name">802-失落的一角-佳作</div>
+              <div class="cat-meta">113小小說書人得獎作品｜佳作</div>
+            </div>
+          </div>
+          <a href='2.小小說書人/113小小說書人得獎作品/802-失落的一角-佳作-web.mp4' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">🎥</span>
+            <div>
+              <div class="cat-name">801那些年我們一起追的女孩-佳作</div>
+              <div class="cat-meta">113小小說書人得獎作品｜佳作</div>
+            </div>
+          </div>
+          <a href='2.小小說書人/113小小說書人得獎作品/801那些年我們一起追的女孩-佳作-web.mp4' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="modal" id="imgModal" onclick="if(event.target===this) closeModal()">
+    <div class="modal-box">
+      <div class="modal-img-wrap">
+        <img id="mImg" src="" alt="預覽" />
+      </div>
+      <div class="modal-foot">
+        <div>
+          <h3 id="mTitle" style="font-size:1.15rem; font-weight:900;"></h3>
+          <p id="mDesc" style="font-size:0.88rem; color:var(--slate); font-weight:600;"></p>
+        </div>
+        <button class="back-btn" onclick="closeModal()" style="cursor:pointer;">✖ 關閉</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p style="font-weight:900; font-size:1.05rem; margin-bottom:0.6rem;">新北市立錦和高級中學（國中部）｜錦和閱世，JINHE, YES!</p>
+    <div style="display:flex; justify-content:center; gap:0.8rem; flex-wrap:wrap; margin-top:0.8rem;">
+      <a href="jinhego-yes.html" class="back-btn">⬅️ 返回 JINHE, YES! 主頁</a>
+      <a href="https://drive.google.com/drive/folders/18kJ3pmYuSlWHHko6imHBF__T2S9OiL4c?usp=sharing" target="_blank" class="cloud-cta">☁️ 開啟「2.小小說書人」Google 雲端資料夾 ↗</a>
+    </div>
+  </footer>
+
+  <script>
+    function openModal(src, title, desc) {
+      document.getElementById('mImg').src = src;
+      document.getElementById('mTitle').textContent = title;
+      document.getElementById('mDesc').textContent = desc;
+      document.getElementById('imgModal').classList.add('open');
+    }
+    function closeModal() {
+      document.getElementById('imgModal').classList.remove('open');
+    }
+    function filterList(q) {
+      const kw = q.trim().toLowerCase();
+      document.querySelectorAll('.cat-item').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(kw) ? 'flex' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

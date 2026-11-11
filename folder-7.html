@@ -1,0 +1,794 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7. 暑期閱讀海報展（視覺化深度輸出）｜錦和高中 JINHE, YES! 閱讀磐石主題專區</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #EA580C;
+      --accent2: #FB923C;
+      --dark: #1E293B;
+      --slate: #475569;
+      --bg: #FFFDF7;
+      --gold: #FFB703;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: var(--bg);
+      background-image: radial-gradient(#CBD5E1 1.2px, transparent 1.2px);
+      background-size: 24px 24px;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 4px solid var(--dark);
+      padding: 0.75rem 1.5rem;
+      color: #fff;
+    }
+    .top-bar-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold);
+      color: var(--dark);
+      font-weight: 900;
+      font-size: 0.95rem;
+      text-decoration: none;
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      border: 3px solid var(--dark);
+      box-shadow: 3px 3px 0 #000;
+      transition: transform 0.15s;
+    }
+    .back-btn:hover {
+      transform: translate(-2px, -2px);
+      background: #FDE047;
+    }
+    .sub-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+    }
+    .sub-pill {
+      text-decoration: none;
+      color: #E2E8F0;
+      font-size: 0.82rem;
+      font-weight: 800;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,0.2);
+      transition: all 0.18s;
+    }
+    .sub-pill:hover {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+    }
+    .sub-pill.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: #fff;
+      box-shadow: 2px 2px 0 #000;
+    }
+    .hero {
+      max-width: 1240px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    .hero-card {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      border: 4px solid var(--dark);
+      border-radius: 28px;
+      box-shadow: 10px 10px 0 var(--dark);
+      padding: 2.2rem;
+      color: #fff;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: #fff;
+      color: var(--dark);
+      font-weight: 900;
+      font-size: 0.86rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      border: 2.5px solid var(--dark);
+      box-shadow: 3px 3px 0 var(--dark);
+      margin-bottom: 0.9rem;
+    }
+    .hero h1 {
+      font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
+    }
+    .hero p {
+      font-size: 1.02rem;
+      font-weight: 600;
+      opacity: 0.96;
+      margin-bottom: 1.4rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+    .cloud-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      background: var(--gold);
+      color: var(--dark);
+      font-weight: 900;
+      font-size: 1rem;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 999px;
+      border: 3px solid var(--dark);
+      box-shadow: 4px 4px 0 var(--dark);
+      transition: transform 0.15s;
+    }
+    .cloud-cta:hover {
+      transform: translate(-2px, -2px);
+      background: #FDE047;
+    }
+    .hero-img-box {
+      background: #fff;
+      border: 3.5px solid var(--dark);
+      border-radius: 20px;
+      padding: 0.7rem;
+      box-shadow: 6px 6px 0 var(--dark);
+      color: var(--dark);
+      transform: rotate(1.5deg);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .hero-img-box:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+    .hero-img-box img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 2px solid var(--dark);
+    }
+    .hero-img-cap {
+      font-size: 0.84rem;
+      font-weight: 800;
+      text-align: center;
+      margin-top: 0.45rem;
+    }
+    .stats-row {
+      max-width: 1240px;
+      margin: 0 auto 2.5rem;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.1rem;
+    }
+    .stat-box {
+      background: #fff;
+      border: 3px solid var(--dark);
+      border-radius: 18px;
+      box-shadow: 5px 5px 0 var(--dark);
+      padding: 1.1rem;
+      text-align: center;
+    }
+    .stat-emo { font-size: 1.8rem; }
+    .stat-val { font-family: 'Fredoka', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--accent); }
+    .stat-lbl { font-size: 0.88rem; font-weight: 800; color: var(--slate); }
+    .section {
+      max-width: 1240px;
+      margin: 0 auto 3.8rem;
+      padding: 0 1.5rem;
+    }
+    .sec-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .sec-head h2 {
+      font-size: 1.65rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1.4rem;
+    }
+    .v-card {
+      background: #fff;
+      border: 3px solid var(--dark);
+      border-radius: 20px;
+      box-shadow: 6px 6px 0 var(--dark);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s;
+    }
+    .v-card:hover {
+      transform: translateY(-5px);
+    }
+    .card-media {
+      position: relative;
+      height: 215px;
+      background: #0F172A;
+      border-bottom: 3px solid var(--dark);
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .card-media.video-wrap {
+      cursor: default;
+    }
+    .card-media img, .card-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s;
+    }
+    .v-card:hover .card-media img {
+      transform: scale(1.06);
+    }
+    .card-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255,255,255,0.95);
+      color: var(--dark);
+      border: 2px solid var(--dark);
+      border-radius: 999px;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.75rem;
+      font-weight: 900;
+    }
+    .zoom-badge {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: var(--dark);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.2rem 0.6rem;
+      border-radius: 99px;
+      opacity: 0.88;
+    }
+    .card-body {
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+    .card-body h3 {
+      font-size: 1.08rem;
+      font-weight: 900;
+      margin-bottom: 0.4rem;
+    }
+    .card-body p {
+      font-size: 0.86rem;
+      color: var(--slate);
+      font-weight: 600;
+      margin-bottom: 0.9rem;
+    }
+    .card-btn {
+      display: inline-block;
+      text-align: center;
+      text-decoration: none;
+      background: #F1F5F9;
+      color: var(--dark);
+      font-weight: 900;
+      font-size: 0.84rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 12px;
+      border: 2px solid var(--dark);
+      transition: background 0.15s;
+    }
+    .card-btn:hover {
+      background: var(--gold);
+    }
+    .search-box {
+      padding: 0.6rem 1.1rem;
+      border-radius: 999px;
+      border: 2.5px solid var(--dark);
+      font-size: 0.9rem;
+      font-weight: 700;
+      width: 280px;
+      outline: none;
+    }
+    .cat-group {
+      background: #fff;
+      border: 3px solid var(--dark);
+      border-radius: 20px;
+      box-shadow: 6px 6px 0 var(--dark);
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+    }
+    .cat-group-header {
+      background: var(--dark);
+      color: #fff;
+      padding: 0.85rem 1.3rem;
+      font-weight: 900;
+      font-size: 1.02rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cat-count {
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 0.78rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+    }
+    .cat-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 0.75rem;
+      padding: 1.1rem;
+    }
+    .cat-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.7rem 0.95rem;
+      border: 2px solid #E2E8F0;
+      border-radius: 14px;
+      transition: all 0.15s;
+    }
+    .cat-item:hover {
+      border-color: var(--dark);
+      background: #FFFBEB;
+      transform: translateY(-2px);
+    }
+    .cat-item-left {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      min-width: 0;
+    }
+    .cat-icon {
+      font-size: 1.45rem;
+      flex-shrink: 0;
+    }
+    .cat-name {
+      font-weight: 900;
+      font-size: 0.9rem;
+      color: var(--dark);
+      word-break: break-all;
+    }
+    .cat-meta {
+      font-size: 0.76rem;
+      color: var(--slate);
+      font-weight: 600;
+    }
+    .item-open {
+      flex-shrink: 0;
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 900;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 2px solid var(--dark);
+      background: #FEF08A;
+      color: var(--dark);
+    }
+    .item-open.cloud {
+      background: #E0F2FE;
+    }
+    .item-open:hover {
+      background: var(--gold);
+    }
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.88);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 1.5rem;
+    }
+    .modal.open { display: flex; }
+    .modal-box {
+      background: #fff;
+      border: 4px solid var(--dark);
+      border-radius: 22px;
+      max-width: 900px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .modal-img-wrap {
+      background: #0F172A;
+      text-align: center;
+      max-height: 70vh;
+    }
+    .modal-img-wrap img {
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+    }
+    .modal-foot {
+      padding: 1.1rem 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    footer {
+      background: var(--dark);
+      color: #fff;
+      text-align: center;
+      padding: 2.2rem 1.5rem;
+      border-top: 4px solid #000;
+    }
+    @media (max-width: 900px) {
+      .hero-card { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Navigation Bar with Return Button -->
+  <nav class="top-bar">
+    <div class="top-bar-inner">
+      <a href="jinhego-yes.html" class="back-btn">⬅️ 返回「JINHE, YES!」主頁</a>
+      <div class="sub-pills">
+        <a href='folder-1.html' class='sub-pill '>1.好讀周報</a>
+<a href='folder-2.html' class='sub-pill '>2.小小說書人</a>
+<a href='folder-3.html' class='sub-pill '>3.主題書展推播</a>
+<a href='folder-4.html' class='sub-pill '>4.閱讀明信片</a>
+<a href='folder-5.html' class='sub-pill '>5.自編教材</a>
+<a href='folder-6.html' class='sub-pill '>6.創意閱讀</a>
+<a href='folder-7.html' class='sub-pill active'>7.暑期閱讀海報展</a>
+<a href='folder-8.html' class='sub-pill '>8.跨域創新</a>
+<a href='folder-9.html' class='sub-pill '>9.RGP利用教育</a>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-card">
+      <div>
+        <span class="hero-badge">TOPIC 07｜Y 閱己 × E 閱智・暑期自主閱讀與圖文整合策展</span>
+        <h1>🖼️ 7. 暑期閱讀海報展（視覺化深度輸出）</h1>
+        <p>暑假閱讀不中斷！國中部學生自主選讀好書，結合金句摘錄、心智圖結構分析、ORID 反思與手繪插圖，產出超過 80 件圖文並茂的巨幅閱讀海報於校園巡迴展出！</p>
+        <div class="hero-actions">
+          <a href="https://drive.google.com/drive/folders/1UMLWrraauIBU_vvdlInrSMnmQ0d-G21Z?usp=sharing" target="_blank" class="cloud-cta">☁️ 開啟「7.暑期閱讀海報展」Google 雲端資料夾 ↗</a>
+          <a href="jinhego-yes.html" class="back-btn" style="background:#fff;">🏠 返回閱讀磐石主頁</a>
+        </div>
+      </div>
+      <div class="hero-img-box" onclick="openModal('7.暑期閱讀海報展/114新生暑期優良海報作品1/114新生暑期優良海報作品1_page-0001.jpg', '7. 暑期閱讀海報展（視覺化深度輸出）', '國中部優良暑期閱讀手繪海報展精選作品')">
+        <img src="7.暑期閱讀海報展/114新生暑期優良海報作品1/114新生暑期優良海報作品1_page-0001.jpg" alt="7. 暑期閱讀海報展（視覺化深度輸出）" />
+        <div class="hero-img-cap">📸 國中部優良暑期閱讀手繪海報展精選作品（點圖放大）</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Key Metrics -->
+  <section class="stats-row">
+          <div class="stat-box">
+        <div class="stat-emo">🖼️</div>
+        <div class="stat-val">84+ 件</div>
+        <div class="stat-lbl">113~115學年度優良海報典藏</div>
+      </div>      <div class="stat-box">
+        <div class="stat-emo">🎬</div>
+        <div class="stat-val">動態策展</div>
+        <div class="stat-lbl">114優良暑假閱讀海報展 MP4</div>
+      </div>      <div class="stat-box">
+        <div class="stat-emo">🏅</div>
+        <div class="stat-val">公開表揚</div>
+        <div class="stat-lbl">開學朝會頒獎並於穿堂圖書館展出</div>
+      </div>      <div class="stat-box">
+        <div class="stat-emo">🎨</div>
+        <div class="stat-val">圖文轉譯</div>
+        <div class="stat-lbl">融合心智圖、金句與個人生命連結</div>
+      </div>
+  </section>
+
+  <!-- Visual Highlights Gallery -->
+  <section class="section">
+    <div class="sec-head">
+      <h2>📸 精選圖像、影音與作品成果展（點擊圖片可放大檢視）</h2>
+    </div>
+    <div class="cards-grid">
+            <div class="v-card" data-cat="">
+                <div class="card-media video-wrap">
+          <video src="7.暑期閱讀海報展/114優良暑假閱讀海報展.mp4" controls preload="metadata" playsinline></video>
+          <span class="card-tag">🎬 動態展覽實錄</span>
+        </div>
+        <div class="card-body">
+          <h3>114學年度「優良暑假閱讀海報展」動態成果影片（點擊播放）</h3>
+          <p>完整收錄獲獎同學手繪閱讀海報特寫與策展精華，展現錦和學子驚人的圖文整合力！</p>
+          <a href='7.暑期閱讀海報展/114優良暑假閱讀海報展.mp4' target='_blank' class='card-btn'>📂 開啟檔案／前往連結 ↗</a>
+        </div>
+      </div>      <div class="v-card" data-cat="">
+                <div class="card-media" onclick="openModal('7.暑期閱讀海報展/114新生暑期優良海報作品1/114新生暑期優良海報作品1_page-0001.jpg', '114新生暑期優良閱讀海報手繪原件 (Page 01)', '版面構圖活潑生動，清楚呈現書籍核心脈絡與個人閱讀體悟！')">
+          <img src="7.暑期閱讀海報展/114新生暑期優良海報作品1/114新生暑期優良海報作品1_page-0001.jpg" alt="114新生暑期優良閱讀海報手繪原件 (Page 01)" loading="lazy" />
+          <span class="card-tag">🌟 114優良海報｜精選 01</span>
+          <span class="zoom-badge">🔍 點擊放大</span>
+        </div>
+        <div class="card-body">
+          <h3>114新生暑期優良閱讀海報手繪原件 (Page 01)</h3>
+          <p>版面構圖活潑生動，清楚呈現書籍核心脈絡與個人閱讀體悟！</p>
+          <a href='7.暑期閱讀海報展/114新生暑期優良海報作品1/114新生暑期優良海報作品1_page-0001.jpg' target='_blank' class='card-btn'>📂 開啟檔案／前往連結 ↗</a>
+        </div>
+      </div>      <div class="v-card" data-cat="">
+                <div class="card-media" onclick="openModal('7.暑期閱讀海報展/114新生暑期優良海報作品1/114新生暑期優良海報作品1_page-0002.jpg', '114新生暑期優良閱讀海報手繪原件 (Page 02)', '精緻插畫搭配深度書評，吸引眾多同學於下課時間駐足欣賞！')">
+          <img src="7.暑期閱讀海報展/114新生暑期優良海報作品1/114新生暑期優良海報作品1_page-0002.jpg" alt="114新生暑期優良閱讀海報手繪原件 (Page 02)" loading="lazy" />
+          <span class="card-tag">🌟 114優良海報｜精選 02</span>
+          <span class="zoom-badge">🔍 點擊放大</span>
+        </div>
+        <div class="card-body">
+          <h3>114新生暑期優良閱讀海報手繪原件 (Page 02)</h3>
+          <p>精緻插畫搭配深度書評，吸引眾多同學於下課時間駐足欣賞！</p>
+          <a href='7.暑期閱讀海報展/114新生暑期優良海報作品1/114新生暑期優良海報作品1_page-0002.jpg' target='_blank' class='card-btn'>📂 開啟檔案／前往連結 ↗</a>
+        </div>
+      </div>      <div class="v-card" data-cat="">
+                <div class="card-media" onclick="openModal('7.暑期閱讀海報展/114新生暑期優良海報作品1/114新生暑期優良海報作品1_page-0003.jpg', '114新生暑期優良閱讀海報手繪原件 (Page 03)', '將長篇文本濃縮為一目了然的視覺圖像與溫暖反思。')">
+          <img src="7.暑期閱讀海報展/114新生暑期優良海報作品1/114新生暑期優良海報作品1_page-0003.jpg" alt="114新生暑期優良閱讀海報手繪原件 (Page 03)" loading="lazy" />
+          <span class="card-tag">🌟 114優良海報｜精選 03</span>
+          <span class="zoom-badge">🔍 點擊放大</span>
+        </div>
+        <div class="card-body">
+          <h3>114新生暑期優良閱讀海報手繪原件 (Page 03)</h3>
+          <p>將長篇文本濃縮為一目了然的視覺圖像與溫暖反思。</p>
+          <a href='7.暑期閱讀海報展/114新生暑期優良海報作品1/114新生暑期優良海報作品1_page-0003.jpg' target='_blank' class='card-btn'>📂 開啟檔案／前往連結 ↗</a>
+        </div>
+      </div>      <div class="v-card" data-cat="">
+                <div class="card-media" onclick="openModal('7.暑期閱讀海報展/114新生暑期優良海報作品2/114新生暑期優良海報作品2_page-0001.jpg', '114新生暑期優良閱讀海報手繪原件 (作品集2-01)', '色彩飽滿、文字工整深刻，展現錦和七年級新生的閱讀素養。')">
+          <img src="7.暑期閱讀海報展/114新生暑期優良海報作品2/114新生暑期優良海報作品2_page-0001.jpg" alt="114新生暑期優良閱讀海報手繪原件 (作品集2-01)" loading="lazy" />
+          <span class="card-tag">🌟 114優良海報｜精選 04</span>
+          <span class="zoom-badge">🔍 點擊放大</span>
+        </div>
+        <div class="card-body">
+          <h3>114新生暑期優良閱讀海報手繪原件 (作品集2-01)</h3>
+          <p>色彩飽滿、文字工整深刻，展現錦和七年級新生的閱讀素養。</p>
+          <a href='7.暑期閱讀海報展/114新生暑期優良海報作品2/114新生暑期優良海報作品2_page-0001.jpg' target='_blank' class='card-btn'>📂 開啟檔案／前往連結 ↗</a>
+        </div>
+      </div>      <div class="v-card" data-cat="">
+                <div class="card-media" onclick="openModal('7.暑期閱讀海報展/113暑期優良讀書心得/20240913_131139_001.jpg', '113學年度暑期優良閱讀心得海報原件', '從書本出發連結自我生命經驗，具體實踐 Y 閱己精神！')">
+          <img src="7.暑期閱讀海報展/113暑期優良讀書心得/20240913_131139_001.jpg" alt="113學年度暑期優良閱讀心得海報原件" loading="lazy" />
+          <span class="card-tag">🌟 113優良海報｜精選 05</span>
+          <span class="zoom-badge">🔍 點擊放大</span>
+        </div>
+        <div class="card-body">
+          <h3>113學年度暑期優良閱讀心得海報原件</h3>
+          <p>從書本出發連結自我生命經驗，具體實踐 Y 閱己精神！</p>
+          <a href='7.暑期閱讀海報展/113暑期優良讀書心得/20240913_131139_001.jpg' target='_blank' class='card-btn'>📂 開啟檔案／前往連結 ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Folder Content List -->
+  <section class="section">
+    <div class="sec-head">
+      <h2>🗂️ 資料夾完整內容清單（點擊即可預覽檔案或前往雲端硬碟）</h2>
+      <input type="text" class="search-box" placeholder="🔍 搜尋清單檔案名稱..." oninput="filterList(this.value)" />
+    </div>
+    <div id="catalogContainer">
+            <div class="cat-group">
+        <div class="cat-group-header">
+          <span>🎬 動態策展影片 ＆ 114學年度「新生暑期優良海報作品」圖庫（共 32 件 JPG）</span>
+          <span class="cat-count">共 8 項精選檔案</span>
+        </div>
+        <div class="cat-list">
+                  <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">🎬</span>
+            <div>
+              <div class="cat-name">114優良暑假閱讀海報展.mp4（動態成果影片）</div>
+              <div class="cat-meta">7.暑期閱讀海報展｜MP4 影片</div>
+            </div>
+          </div>
+          <a href='7.暑期閱讀海報展/114優良暑假閱讀海報展.mp4' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">🖼️</span>
+            <div>
+              <div class="cat-name">114新生暑期優良海報作品1_page-0001.jpg</div>
+              <div class="cat-meta">114新生暑期優良海報作品1</div>
+            </div>
+          </div>
+          <a href='7.暑期閱讀海報展/114新生暑期優良海報作品1/114新生暑期優良海報作品1_page-0001.jpg' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">🖼️</span>
+            <div>
+              <div class="cat-name">114新生暑期優良海報作品1_page-0002.jpg</div>
+              <div class="cat-meta">114新生暑期優良海報作品1</div>
+            </div>
+          </div>
+          <a href='7.暑期閱讀海報展/114新生暑期優良海報作品1/114新生暑期優良海報作品1_page-0002.jpg' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">🖼️</span>
+            <div>
+              <div class="cat-name">114新生暑期優良海報作品1_page-0003.jpg</div>
+              <div class="cat-meta">114新生暑期優良海報作品1</div>
+            </div>
+          </div>
+          <a href='7.暑期閱讀海報展/114新生暑期優良海報作品1/114新生暑期優良海報作品1_page-0003.jpg' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">🖼️</span>
+            <div>
+              <div class="cat-name">114新生暑期優良海報作品1_page-0004.jpg</div>
+              <div class="cat-meta">114新生暑期優良海報作品1</div>
+            </div>
+          </div>
+          <a href='7.暑期閱讀海報展/114新生暑期優良海報作品1/114新生暑期優良海報作品1_page-0004.jpg' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">🖼️</span>
+            <div>
+              <div class="cat-name">114新生暑期優良海報作品2_page-0001.jpg</div>
+              <div class="cat-meta">114新生暑期優良海報作品2</div>
+            </div>
+          </div>
+          <a href='7.暑期閱讀海報展/114新生暑期優良海報作品2/114新生暑期優良海報作品2_page-0001.jpg' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">🖼️</span>
+            <div>
+              <div class="cat-name">114新生暑期優良海報作品2_page-0002.jpg</div>
+              <div class="cat-meta">114新生暑期優良海報作品2</div>
+            </div>
+          </div>
+          <a href='7.暑期閱讀海報展/114新生暑期優良海報作品2/114新生暑期優良海報作品2_page-0002.jpg' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">🖼️</span>
+            <div>
+              <div class="cat-name">114新生暑期優良海報作品2_page-0003.jpg</div>
+              <div class="cat-meta">114新生暑期優良海報作品2</div>
+            </div>
+          </div>
+          <a href='7.暑期閱讀海報展/114新生暑期優良海報作品2/114新生暑期優良海報作品2_page-0003.jpg' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>
+        </div>
+      </div>      <div class="cat-group">
+        <div class="cat-group-header">
+          <span>🌟 115學年度「暑假優良海報作品」(21件 PDF) ＆ 113學年度優良作品 (31件 JPG)</span>
+          <span class="cat-count">共 6 項精選檔案</span>
+        </div>
+        <div class="cat-list">
+                  <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">📑</span>
+            <div>
+              <div class="cat-name">115暑假優良海報作品 01 (MX-M4050_20260917_163310.pdf)</div>
+              <div class="cat-meta">115暑假優良海報作品</div>
+            </div>
+          </div>
+          <a href='7.暑期閱讀海報展/115暑假優良海報作品/MX-M4050_20260917_163310.pdf' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">📑</span>
+            <div>
+              <div class="cat-name">115暑假優良海報作品 02 (MX-M4050_20260917_163338.pdf)</div>
+              <div class="cat-meta">115暑假優良海報作品</div>
+            </div>
+          </div>
+          <a href='7.暑期閱讀海報展/115暑假優良海報作品/MX-M4050_20260917_163338.pdf' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">📑</span>
+            <div>
+              <div class="cat-name">115暑假優良海報作品 03 (MX-M4050_20260917_163406.pdf)</div>
+              <div class="cat-meta">115暑假優良海報作品</div>
+            </div>
+          </div>
+          <a href='7.暑期閱讀海報展/115暑假優良海報作品/MX-M4050_20260917_163406.pdf' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">📑</span>
+            <div>
+              <div class="cat-name">115暑假優良海報作品 04 (MX-M4050_20260917_163431.pdf)</div>
+              <div class="cat-meta">115暑假優良海報作品</div>
+            </div>
+          </div>
+          <a href='7.暑期閱讀海報展/115暑假優良海報作品/MX-M4050_20260917_163431.pdf' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">🖼️</span>
+            <div>
+              <div class="cat-name">113暑期優良讀書心得 01 (20240913_131139_001.jpg)</div>
+              <div class="cat-meta">113暑期優良讀書心得</div>
+            </div>
+          </div>
+          <a href='7.暑期閱讀海報展/113暑期優良讀書心得/20240913_131139_001.jpg' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>        <div class="cat-item">
+          <div class="cat-item-left">
+            <span class="cat-icon">🖼️</span>
+            <div>
+              <div class="cat-name">113暑期優良讀書心得 02 (20240913_131139_002.jpg)</div>
+              <div class="cat-meta">113暑期優良讀書心得</div>
+            </div>
+          </div>
+          <a href='7.暑期閱讀海報展/113暑期優良讀書心得/20240913_131139_002.jpg' target='_blank' class='item-open'>開啟預覽 ↗</a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="modal" id="imgModal" onclick="if(event.target===this) closeModal()">
+    <div class="modal-box">
+      <div class="modal-img-wrap">
+        <img id="mImg" src="" alt="預覽" />
+      </div>
+      <div class="modal-foot">
+        <div>
+          <h3 id="mTitle" style="font-size:1.15rem; font-weight:900;"></h3>
+          <p id="mDesc" style="font-size:0.88rem; color:var(--slate); font-weight:600;"></p>
+        </div>
+        <button class="back-btn" onclick="closeModal()" style="cursor:pointer;">✖ 關閉</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p style="font-weight:900; font-size:1.05rem; margin-bottom:0.6rem;">新北市立錦和高級中學（國中部）｜錦和閱世，JINHE, YES!</p>
+    <div style="display:flex; justify-content:center; gap:0.8rem; flex-wrap:wrap; margin-top:0.8rem;">
+      <a href="jinhego-yes.html" class="back-btn">⬅️ 返回 JINHE, YES! 主頁</a>
+      <a href="https://drive.google.com/drive/folders/1UMLWrraauIBU_vvdlInrSMnmQ0d-G21Z?usp=sharing" target="_blank" class="cloud-cta">☁️ 開啟「7.暑期閱讀海報展」Google 雲端資料夾 ↗</a>
+    </div>
+  </footer>
+
+  <script>
+    function openModal(src, title, desc) {
+      document.getElementById('mImg').src = src;
+      document.getElementById('mTitle').textContent = title;
+      document.getElementById('mDesc').textContent = desc;
+      document.getElementById('imgModal').classList.add('open');
+    }
+    function closeModal() {
+      document.getElementById('imgModal').classList.remove('open');
+    }
+    function filterList(q) {
+      const kw = q.trim().toLowerCase();
+      document.querySelectorAll('.cat-item').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(kw) ? 'flex' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
