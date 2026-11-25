@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>115錦和磐石獎簡報版｜錦和閱世，JINHE, YES! 上台報告專用滿版簡報</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark: #0F172A;
+      --navy: #1E293B;
+      --slate: #334155;
+      --gold: #FFB703;
+      --gold-light: #FEF08A;
+      --pink: #FF3366;
+      --pink-bg: #FFF0F3;
+      --blue: #0096C7;
+      --blue-bg: #E0F2FE;
+      --green: #059669;
+      --green-bg: #D1FAE5;
+      --purple: #7C3AED;
+      --purple-bg: #F3E8FF;
+      --orange: #EA580C;
+      --orange-bg: #FFEDD5;
+      --font-scale: 1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Noto Sans TC', sans-serif;
+      background: #0F172A;
+      color: var(--dark);
+      user-select: none;
+    }
+
+    /* ================= TOP PRESENTER BAR (64px) ================= */
+    .presenter-top {
+      height: 64px;
+      background: #0F172A;
+      border-bottom: 3px solid #334155;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.25rem;
+      color: #fff;
+      z-index: 100;
+    }
+
+    .top-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--gold);
+      color: var(--dark);
+      font-weight: 900;
+      font-size: 0.95rem;
+      text-decoration: none;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      border: 2.5px solid #fff;
+      box-shadow: 0 3px 0 #B45309;
+      transition: transform 0.15s;
+      cursor: pointer;
+    }
+
+    .btn-home:hover {
+      transform: translateY(-2px);
+      background: #FDE047;
+    }
+
+    .deck-brand {
+      font-weight: 900;
+      font-size: 1.05rem;
+      color: #FEF08A;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Slide Number Pills 1~10 */
+    .slide-dots {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .s-dot {
+      background: #1E293B;
+      color: #CBD5E1;
+      border: 2px solid #475569;
+      border-radius: 10px;
+      padding: 0.3rem 0.68rem;
+      font-weight: 900;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+
+    .s-dot:hover {
+      background: #334155;
+      color: #fff;
+      border-color: #94A3B8;
+    }
+
+    .s-dot.active {
+      background: var(--pink);
+      color: #fff;
+      border-color: #fff;
+      transform: scale(1.1);
+      box-shadow: 0 0 12px rgba(255, 51, 102, 0.7);
+    }
+
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .tool-btn {
+      background: #1E293B;
+      color: #fff;
+      border: 2px solid #64748B;
+      border-radius: 999px;
+      padding: 0.4rem 0.9rem;
+      font-weight: 900;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .tool-btn:hover {
+      background: #334155;
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
+
+    /* ================= FULL-SCREEN SLIDE STAGE ================= */
+    .slide-stage {
+      width: 100vw;
+      height: calc(100vh - 124px);
+      position: relative;
+      overflow: hidden;
+      background: #FFFDF7;
+      background-image: radial-gradient(#CBD5E1 1.4px, transparent 1.4px);
+      background-size: 26px 26px;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 1.3rem 2.2rem 1.1rem;
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      opacity: 0;
+      transform: translateX(30px);
+      transition: opacity 0.28s ease, transform 0.28s ease;
+    }
+
+    .slide.active {
+      display: flex;
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Slide Header */
+    .slide-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      border-bottom: 4px solid var(--dark);
+      padding-bottom: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    .slide-title-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .slide-num-badge {
+      background: var(--dark);
+      color: var(--gold);
+      font-family: 'Fredoka', sans-serif;
+      font-size: calc(1.55rem * var(--font-scale));
+      font-weight: 700;
+      padding: 0.35rem 1rem;
+      border-radius: 16px;
+      border: 3px solid var(--gold);
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+      flex-shrink: 0;
+    }
+
+    .slide-main-title {
+      font-size: calc(clamp(1.85rem, 2.7vw, 2.85rem) * var(--font-scale));
+      font-weight: 900;
+      color: var(--dark);
+      line-height: 1.18;
+      letter-spacing: -0.5px;
+    }
+
+    .slide-main-title .hl {
+      background: linear-gradient(180deg, transparent 58%, #FEF08A 58%);
+      padding: 0 0.2rem;
+    }
+
+    .slide-pillar-tag {
+      font-size: calc(1.08rem * var(--font-scale));
+      font-weight: 900;
+      padding: 0.45rem 1.15rem;
+      border-radius: 999px;
+      border: 3px solid var(--dark);
+      box-shadow: 4px 4px 0 var(--dark);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Slide Main Content Grid (2 Columns: Visual Key Points + Big Photo Grid) */
+    .slide-body {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1.6rem;
+      align-items: stretch;
+    }
+
+    .slide-body.wide-photos {
+      grid-template-columns: 0.95fr 1.05fr;
+    }
+
+    /* Left Column: Big Visual Point Cards & Stats */
+    .points-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.85rem;
+      min-height: 0;
+    }
+
+    .point-card {
+      background: #fff;
+      border: 3.5px solid var(--dark);
+      border-radius: 20px;
+      box-shadow: 6px 6px 0 var(--dark);
+      padding: 0.95rem 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.95rem;
+      flex: 1;
+      transition: transform 0.18s;
+    }
+
+    .point-card:hover {
+      transform: translateX(6px);
+    }
+
+    .p-icon {
+      font-size: calc(2.3rem * var(--font-scale));
+      line-height: 1;
+      background: #FEF08A;
+      border: 2.5px solid var(--dark);
+      border-radius: 16px;
+      width: 58px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 3px 3px 0 var(--dark);
+    }
+
+    .p-text h3 {
+      font-size: calc(clamp(1.25rem, 1.55vw, 1.65rem) * var(--font-scale));
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 0.25rem;
+      line-height: 1.25;
+    }
+
+    .p-text p {
+      font-size: calc(clamp(1.05rem, 1.25vw, 1.32rem) * var(--font-scale));
+      font-weight: 700;
+      color: var(--slate);
+      line-height: 1.42;
+    }
+
+    .kw {
+      color: #D90429;
+      background: #FFE5EC;
+      padding: 0.05rem 0.4rem;
+      border-radius: 6px;
+      font-weight: 900;
+    }
+
+    .kw-blue {
+      color: #0369A1;
+      background: #E0F2FE;
+      padding: 0.05rem 0.4rem;
+      border-radius: 6px;
+      font-weight: 900;
+    }
+
+    .kw-green {
+      color: #047857;
+      background: #D1FAE5;
+      padding: 0.05rem 0.4rem;
+      border-radius: 6px;
+      font-weight: 900;
+    }
+
+    /* Big KPI Stat Strip inside Slides */
+    .kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .kpi-box {
+      background: var(--dark);
+      color: #fff;
+      border: 3px solid var(--dark);
+      border-radius: 18px;
+      padding: 0.7rem 0.9rem;
+      text-align: center;
+      box-shadow: 5px 5px 0 var(--gold);
+    }
+
+    .kpi-num {
+      font-family: 'Fredoka', sans-serif;
+      font-size: calc(clamp(1.65rem, 2.2vw, 2.35rem) * var(--font-scale));
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1.1;
+    }
+
+    .kpi-label {
+      font-size: calc(clamp(0.95rem, 1.1vw, 1.15rem) * var(--font-scale));
+      font-weight: 900;
+      color: #F8FAFC;
+      margin-top: 0.15rem;
+    }
+
+    /* Right Column: Photo Collage Grid */
+    .photos-col {
+      display: grid;
+      gap: 0.9rem;
+      min-height: 0;
+      height: 100%;
+    }
+
+    .photos-col.grid-2x2 {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .photos-col.grid-1-top-2-bot {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1.15fr 0.85fr;
+    }
+
+    .photos-col.grid-1-top-2-bot .photo-card:first-child {
+      grid-column: 1 / -1;
+    }
+
+    .photos-col.grid-2-rows {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .photo-card {
+      position: relative;
+      background: #0F172A;
+      border: 3.5px solid var(--dark);
+      border-radius: 20px;
+      box-shadow: 6px 6px 0 var(--dark);
+      overflow: hidden;
+      cursor: pointer;
+      min-height: 0;
+    }
+
+    .photo-card img, .photo-card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .photo-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .photo-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--gold);
+      color: var(--dark);
+      font-weight: 900;
+      font-size: calc(0.92rem * var(--font-scale));
+      padding: 0.22rem 0.75rem;
+      border-radius: 999px;
+      border: 2.5px solid var(--dark);
+      box-shadow: 2px 2px 0 var(--dark);
+    }
+
+    .photo-caption {
+      position: absolute;
+      bottom: 0;
+      inset-inline: 0;
+      background: linear-gradient(0deg, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.75) 70%, transparent 100%);
+      color: #fff;
+      padding: 1.2rem 0.9rem 0.55rem;
+      font-weight: 900;
+      font-size: calc(clamp(0.98rem, 1.18vw, 1.22rem) * var(--font-scale));
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .zoom-hint {
+      background: rgba(255,255,255,0.2);
+      padding: 0.15rem 0.5rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    /* Speaker Golden Quote Strip at bottom of each slide */
+    .speaker-bar {
+      background: linear-gradient(90deg, #1E293B 0%, #0F172A 100%);
+      color: #fff;
+      border: 3px solid var(--dark);
+      border-radius: 16px;
+      padding: 0.65rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-shrink: 0;
+      box-shadow: 4px 4px 0 var(--gold);
+    }
+
+    .speaker-quote {
+      font-size: calc(clamp(1.08rem, 1.35vw, 1.42rem) * var(--font-scale));
+      font-weight: 900;
+      color: #FEF08A;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .speaker-link {
+      background: #fff;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 0.9rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 2px solid var(--gold);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .speaker-link:hover {
+      background: var(--gold);
+    }
+
+    /* ================= BOTTOM PRESENTER CONTROL BAR (60px) ================= */
+    .presenter-bottom {
+      height: 60px;
+      background: #0F172A;
+      border-top: 3px solid #334155;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      color: #fff;
+      position: relative;
+    }
+
+    .progress-track {
+      position: absolute;
+      top: -4px;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: #1E293B;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--pink), var(--gold), #06D6A0);
+      width: 10%;
+      transition: width 0.25s ease;
+    }
+
+    .nav-btn {
+      background: var(--gold);
+      color: var(--dark);
+      border: 2.5px solid #fff;
+      border-radius: 999px;
+      padding: 0.45rem 1.35rem;
+      font-weight: 900;
+      font-size: 1.02rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      box-shadow: 0 3px 0 #B45309;
+      transition: transform 0.15s;
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-2px);
+      background: #FDE047;
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .slide-counter {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: #E2E8F0;
+    }
+
+    /* ================= LIGHTBOX ZOOM MODAL ================= */
+    .zoom-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.94);
+      z-index: 3000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .zoom-modal.open {
+      display: flex;
+    }
+
+    .zoom-box {
+      background: #fff;
+      border: 4px solid var(--gold);
+      border-radius: 24px;
+      max-width: 1200px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    }
+
+    .zoom-img-wrap {
+      background: #000;
+      text-align: center;
+      max-height: 76vh;
+    }
+
+    .zoom-img-wrap img {
+      max-width: 100%;
+      max-height: 76vh;
+      object-fit: contain;
+    }
+
+    .zoom-foot {
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      background: #0F172A;
+      color: #fff;
+    }
+
+    /* ================= 10-SLIDE OVERVIEW GRID MODAL ================= */
+    .overview-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.95);
+      z-index: 2500;
+      display: none;
+      flex-direction: column;
+      padding: 2rem;
+      overflow-y: auto;
+    }
+
+    .overview-modal.open {
+      display: flex;
+    }
+
+    .ov-grid {
+      max-width: 1300px;
+      margin: 1.5rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.1rem;
+      width: 100%;
+    }
+
+    .ov-card {
+      background: #1E293B;
+      border: 3px solid #475569;
+      border-radius: 18px;
+      padding: 1.1rem;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .ov-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      background: #334155;
+    }
+
+    .ov-num {
+      font-family: 'Fredoka', sans-serif;
+      color: var(--gold);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .ov-title {
+      font-size: 1.05rem;
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    @media (max-width: 1024px) {
+      html, body { overflow-y: auto; height: auto; }
+      .slide-stage { height: auto; min-height: calc(100vh - 124px); overflow: visible; }
+      .slide { position: relative; inset: auto; }
+      .slide-body, .slide-body.wide-photos { grid-template-columns: 1fr; }
+      .photos-col { min-height: 420px; }
+      .ov-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= TOP PRESENTER BAR ================= -->
+  <header class="presenter-top">
+    <div class="top-left">
+      <a href="jinhego-yes.html" class="btn-home">⬅️ 返回互動主網站</a>
+      <div class="deck-brand">
+        <span>🎤 115錦和高中(國中部)閱讀磐石獎・上台報告簡報</span>
+      </div>
+    </div>
+
+    <div class="slide-dots" id="slideDots">
+      <button class="s-dot active" onclick="goSlide(0)" title="重點1：願景與四大破局">01</button>
+      <button class="s-dot" onclick="goSlide(1)" title="重點2：團隊領航與錦堡空間">02</button>
+      <button class="s-dot" onclick="goSlide(2)" title="重點3：校本自編雙核心教材">03</button>
+      <button class="s-dot" onclick="goSlide(3)" title="重點4：Y閱己・SEL青春濃霧展">04</button>
+      <button class="s-dot" onclick="goSlide(4)" title="重點5：Y×E・手繪與AI閱讀明信片">05</button>
+      <button class="s-dot" onclick="goSlide(5)" title="重點6：E閱智・連續3年公開授課與E度AI">06</button>
+      <button class="s-dot" onclick="goSlide(6)" title="重點7：E思辨・16週讀報三部曲＆小小說書人">07</button>
+      <button class="s-dot" onclick="goSlide(7)" title="重點8：S閱世・自然綠能＆36組減塑雕塑">08</button>
+      <button class="s-dot" onclick="goSlide(8)" title="重點9：S閱世・山海獵人＆巴拉圭與美國雙語走讀">09</button>
+      <button class="s-dot" onclick="goSlide(9)" title="重點10：全市SR最高進步獎＆扶輪之子外溢">10</button>
+    </div>
+
+    <div class="top-right">
+      <button class="tool-btn" onclick="toggleOverview()">📋 10大重點總覽</button>
+      <button class="tool-btn" onclick="cycleFontSize()" id="fontBtn">🔍 字體放大 (標準)</button>
+      <button class="tool-btn" onclick="toggleFullScreen()">🖥️ 全螢幕簡報</button>
+    </div>
+  </header>
+
+  <!-- ================= 10 FULL-SCREEN SLIDES STAGE ================= -->
+  <main class="slide-stage">
+
+    <!-- ==================== SLIDE 01 ==================== -->
+    <section class="slide active">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-badge">重點 01 / 10</span>
+          <h1 class="slide-main-title">方案總綱：<span class="hl">錦和閱世，JINHE, YES!</span> 翻轉四大困境</h1>
+        </div>
+        <span class="slide-pillar-tag" style="background:#FEF08A;">🌟 願景架構｜台語「真好 (tsin hó)」在錦和讀書真好！</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="points-col">
+          <div class="point-card" style="background:var(--pink-bg);">
+            <div class="p-icon" style="background:#FF3366; color:#fff;">Y</div>
+            <div class="p-text">
+              <h3>Yield the Heart【閱己・心靈開門】➔ 破除「情緒無出口、流水帳」</h3>
+              <p>從<span class="kw">《ORID 閱讀護照》</span>四層次提問到<span class="kw">《安妮新聞》SEL 青春濃霧展</span>，讓閱讀成為安頓青春焦慮的避風港！</p>
+            </div>
+          </div>
+
+          <div class="point-card" style="background:var(--blue-bg);">
+            <div class="p-icon" style="background:#0096C7; color:#fff;">E</div>
+            <div class="p-text">
+              <h3>Empower with Tech【閱智・數位賦能】➔ 破除「滑世代怕長文」</h3>
+              <p>導入<span class="kw-blue">臺師大 SR 適性診斷</span>、<span class="kw-blue">因材網 E度 AI 古文助教</span>、<span class="kw-blue">AI 提示詞明信片</span>與<span class="kw-blue">16週讀報出題官</span>，鍛鍊高階推論力！</p>
+            </div>
+          </div>
+
+          <div class="point-card" style="background:var(--green-bg);">
+            <div class="p-icon" style="background:#059669; color:#fff;">S</div>
+            <div class="p-text">
+              <h3>Step into Society【閱世・永續公民】➔ 破除「學科孤島與隔閡」</h3>
+              <p>串聯<span class="kw-green">自然科綠能大富翁</span>、<span class="kw-green">山海獵人原民桌遊</span>、<span class="kw-green">巴拉圭使節開箱</span>與<span class="kw-green">美國 CSULB 大稻埕雙語走讀</span>！</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="photos-col grid-1-top-2-bot">
+          <div class="photo-card" onclick="openZoom('assets/img/image27.png', '榮獲 115 年度新北市國中組【SR 適性閱讀最高進步獎】')">
+            <img src="assets/img/image27.png" alt="SR最高進步獎" />
+            <span class="photo-badge">🏆 新北市國中組最高榮譽</span>
+            <div class="photo-caption">
+              <span>榮獲新北市「SR 適性閱讀最高進步獎」（高階閱讀 PR 躍升 >15%）</span>
+              <span class="zoom-hint">🔍 點圖放大</span>
+            </div>
+          </div>
+          <div class="photo-card" onclick="openZoom('assets/img/image1.png', '全校沉浸式寧靜晨讀與自編《國文小尖兵》')">
+            <img src="assets/img/image1.png" alt="晨讀時光" />
+            <span class="photo-badge">🌅 晨讀扎根</span>
+            <div class="photo-caption"><span>每日晨讀《國文小尖兵》</span></div>
+          </div>
+          <div class="photo-card" onclick="openZoom('assets/img/image16.png', '完全中學優勢共融：巴拉圭大使入校使節開箱')">
+            <img src="assets/img/image16.png" alt="使節開箱" />
+            <span class="photo-badge">🌍 國際閱世</span>
+            <div class="photo-caption"><span>巴拉圭大使入校開箱互動</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-bar">
+        <div class="speaker-quote">🎤 報告金句：「我們以『滲透與擴散』為雙翼，陪孩子向內打開心門 (Y)、駕馭 AI 科技 (E)、自信走入大世界 (S)！」</div>
+        <a href="jinhego-yes.html" class="speaker-link">🌐 檢視完整網站 ↗</a>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 02 ==================== -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-badge">重點 02 / 10</span>
+          <h1 class="slide-main-title">團隊與空間：<span class="hl">跨科寫入領域計畫</span> × 有溫度的「錦堡」</h1>
+        </div>
+        <span class="slide-pillar-tag" style="background:#E0F2FE;">🏰 行政領航 × 敏捷共備 × 虛實策展環境</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="points-col">
+          <div class="point-card">
+            <div class="p-icon">🤝</div>
+            <div class="p-text">
+              <h3>拒絕單打獨鬥！跨科共備「正式寫入領域教學計畫」</h3>
+              <p>校長領航行政教學鐵三角，閱推與<span class="kw">國文、視藝、表藝、自然、資訊</span>敏捷共備，每學期<span class="kw">逾 1/3 週次</span>常態實施，不因人事異動中斷！</p>
+            </div>
+          </div>
+
+          <div class="point-card">
+            <div class="p-icon">🎰</div>
+            <div class="p-text">
+              <h3>把圖書館變成「錦堡樂園」：閱讀扭蛋機 × 動態影音推播</h3>
+              <p>設置下課排隊神器<span class="kw-blue">「實體閱讀扭蛋機」</span>、溫暖沙發<span class="kw-blue">「SEL 心理安頓專區」</span>，每檔書展自製 1～3 分鐘動態短片全校聯播！</p>
+            </div>
+          </div>
+
+          <div class="point-card">
+            <div class="p-icon">🧑‍🤝‍🧑</div>
+            <div class="p-text">
+              <h3>每週 10 班制家長志工隊 × 學生小志工團 × 線上 RPG 導覽</h3>
+              <p>家長志工擔任闖關關主與特教伴讀；小志工中午常駐調度<span class="kw-green">20～30箱班級共讀書箱</span>；新生 100% 體驗自製<span class="kw-green">線上 RPG 利用教育遊戲</span>！</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="photos-col grid-1-top-2-bot">
+          <div class="photo-card" onclick="openZoom('0磐石送件/磐石活動照(錦和高中)/扭蛋機與閱推活動.JPG', '下課最熱門的「錦堡閱讀扭蛋機」與主題闖關熱潮')">
+            <img src="0磐石送件/磐石活動照(錦和高中)/扭蛋機與閱推活動.JPG" alt="扭蛋機與閱推活動" />
+            <span class="photo-badge">🎰 錦堡人氣王：閱讀扭蛋機</span>
+            <div class="photo-caption">
+              <span>結合《閱讀護照》集點兌換代幣，引爆國中生入館借閱熱潮！</span>
+              <span class="zoom-hint">🔍 點圖放大</span>
+            </div>
+          </div>
+          <div class="photo-card" onclick="openZoom('assets/img/image2.jpeg', '錦堡圖書館立體情境策展與 SEL 心理安頓專區')">
+            <img src="assets/img/image2.jpeg" alt="主題書展空間" />
+            <span class="photo-badge">🎬 月月主題書展</span>
+            <div class="photo-caption"><span>視藝協作立體書展＋動態推播</span></div>
+          </div>
+          <div class="photo-card" onclick="openZoom('assets/img/image8.jpeg', '家長志工隊關主與資源班特教生一對一全納伴讀闖關')">
+            <img src="assets/img/image8.jpeg" alt="志工與特教共融" />
+            <span class="photo-badge">💝 全納平權共融</span>
+            <div class="photo-caption"><span>家長志工隊＆特教生無障礙闖關</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-bar">
+        <div class="speaker-quote">🎤 報告金句：「我們用一部扭蛋機與每個月的動態推播短片，打破索書號的冰冷高牆，讓圖書館成為下課最熱鬧的錦堡樂園！」</div>
+        <a href="folder-9.html" target="_blank" class="speaker-link">🎮 9.利用教育專區 ↗</a>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 03 ==================== -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-badge">重點 03 / 10</span>
+          <h1 class="slide-main-title">校本自編教材：<span class="hl">《國文小尖兵》4冊</span> × <span class="hl">《ORID閱讀護照》</span></h1>
+        </div>
+        <span class="slide-pillar-tag" style="background:#F3E8FF;">📘 拒絕坊間測驗卷・三年三代滾動進化・100%全員收齊</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="points-col">
+          <div class="point-card" style="background:var(--purple-bg);">
+            <div class="p-icon">📚</div>
+            <div class="p-text">
+              <h3>自主研發《國文小尖兵》四冊螺旋式晨讀教材</h3>
+              <p>依認知發展編纂：<span class="kw">七上(論孟古詩) ➔ 七下(唐宋詩) ➔ 八上(世說新語) ➔ 八下(古典筆記小說)</span>，奠定文言與長文閱讀底蘊！</p>
+            </div>
+          </div>
+
+          <div class="point-card">
+            <div class="p-icon">🧭</div>
+            <div class="p-text">
+              <h3>三代改版《新版閱讀護照》：SR 選書攻略 ＋ ORID 思考鷹架</h3>
+              <p>內建 P.6<span class="kw-blue">〈SR 選書攻略〉</span>配對適讀好書；以<span class="kw-blue">O客觀事實、R感受反應、I意義詮釋、D決定行動</span>四層次提問，終結抄大意流水帳！</p>
+            </div>
+          </div>
+
+          <div class="kpi-strip">
+            <div class="kpi-box">
+              <div class="kpi-num">100%</div>
+              <div class="kpi-label">國七國八護照收齊率</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-num">4 冊 + 3 代</div>
+              <div class="kpi-label">校本教材全數雲端開源</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-num">25 點晉級</div>
+              <div class="kpi-label">鑽石/環球/星光閱讀獎</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="photos-col grid-1-top-2-bot">
+          <div class="photo-card" onclick="openZoom('assets/img/image10.png', '校本自編《新版閱讀護照》SR選書攻略與《國文小尖兵》四冊完整教材')">
+            <img src="assets/img/image10.png" alt="校本自編教材" />
+            <span class="photo-badge">📘 100% 教師自編校本教材</span>
+            <div class="photo-caption">
+              <span>《國文小尖兵》四冊 ＆《新版閱讀護照》P.6 SR 選書攻略</span>
+              <span class="zoom-hint">🔍 點圖放大</span>
+            </div>
+          </div>
+          <div class="photo-card" onclick="openZoom('assets/img/image12.png', '學生《ORID 焦點寫作單》與《讀報九宮格》真實手寫原件')">
+            <img src="assets/img/image12.png" alt="ORID手寫原件" />
+            <span class="photo-badge">✍️ ORID 深度反思原件</span>
+            <div class="photo-caption"><span>ORID 寫作單＋讀報九宮格</span></div>
+          </div>
+          <div class="photo-card" onclick="openZoom('assets/img/image28.png', '班級共讀書箱換書日常與學生護照手寫心得特寫')">
+            <img src="assets/img/image28.png" alt="書箱與護照內頁" />
+            <span class="photo-badge">📦 班級共讀書箱</span>
+            <div class="photo-caption"><span>「有新書了，開心看書！」</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-bar">
+        <div class="speaker-quote">🎤 報告金句：「有了 ORID 四層次思考鷹架，孩子不再怕寫心得，更創下國中部七、八年級《閱讀護照》100% 全員收齊的奇蹟！」</div>
+        <a href="folder-5.html" target="_blank" class="speaker-link">📘 5.自編教材專區 ↗</a>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 04 ==================== -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-badge">重點 04 / 10</span>
+          <h1 class="slide-main-title">主軸 Y 閱己：<span class="hl">SEL 青春濃霧展</span> × 在混亂中畫下希望之星 ⭐</h1>
+        </div>
+        <span class="slide-pillar-tag" style="background:#FFF0F3; color:#D90429;">💖 Y 閱己・心靈開門｜閱讀 × SEL 社會情緒學習 × 視覺藝術</span>
+      </div>
+
+      <div class="slide-body wide-photos">
+        <div class="points-col">
+          <div class="point-card" style="background:var(--pink-bg);">
+            <div class="p-icon">🌫️</div>
+            <div class="p-text">
+              <h3>《安妮新聞》青春濃霧展：繪製「我的人生天氣圖」</h3>
+              <p>陳恬伶老師結合《安妮新聞》美感報紙，引導國中生覺察內在情緒天氣（濃霧、暴風雨、多雲、晴天），讓隱微的壓力被溫柔看見。</p>
+            </div>
+          </div>
+
+          <div class="point-card">
+            <div class="p-icon">⭐</div>
+            <div class="p-text">
+              <h3>手撕報紙拼貼〈我的混亂地圖〉➔ 中央畫下「希望之星」</h3>
+              <p>學生親手將報紙撕碎拼貼出內心的混亂風暴，並在畫面中央畫下一顆<span class="kw">代表希望與方向的星星⭐</span>，寫下：「在混亂中看見可能性！」</p>
+            </div>
+          </div>
+
+          <div class="point-card">
+            <div class="p-icon">💌</div>
+            <div class="p-text">
+              <h3>10月 SEL 好書動態推播 × 聖誕感恩快遞 × 教師節快閃</h3>
+              <p>自製<span class="kw-blue">〈11410月 SEL 好書推薦〉</span>短片（「你最近有點累嗎？」），結合明信片感恩快遞，將自我療癒擴展為溫暖他人的行動！</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="photos-col grid-1-top-2-bot">
+          <div class="photo-card" onclick="openZoom('assets/img/image22.png', '【閱讀×SEL×視藝】《安妮新聞》青春濃霧展〈我的混亂地圖〉學生原件')">
+            <img src="assets/img/image22.png" alt="我的混亂地圖" />
+            <span class="photo-badge">⭐ 學生真實手寫原件：撕報紙畫希望之星</span>
+            <div class="photo-caption">
+              <span>「雖然現在像暴風雨，但畫下星星⭐的那一刻，我找回前進的方向！」</span>
+              <span class="zoom-hint">🔍 點圖放大</span>
+            </div>
+          </div>
+          <div class="photo-card" onclick="openZoom('8.跨域創新/閱讀與SEL/學生作品/IMG_2523.JPG', '學生〈我的混亂地圖〉與人生天氣圖課堂作品實拍')">
+            <img src="8.跨域創新/閱讀與SEL/學生作品/IMG_2523.JPG" alt="SEL學生作品1" />
+            <span class="photo-badge">💖 SEL 課堂實作</span>
+            <div class="photo-caption"><span>24 件〈我的混亂地圖〉展出</span></div>
+          </div>
+          <div class="photo-card" onclick="openZoom('0磐石送件/磐石活動照(錦和高中)/教師節~快閃慶祝活動.jpg', '結合 SEL 感恩教育之教師節圖書館快閃與感恩快遞活動')">
+            <img src="0磐石送件/磐石活動照(錦和高中)/教師節~快閃慶祝活動.jpg" alt="教師節感恩快閃" />
+            <span class="photo-badge">💌 感恩快遞行動</span>
+            <div class="photo-caption"><span>教師節感恩快閃＆聖誕快遞</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-bar">
+        <div class="speaker-quote">🎤 報告金句：「當孩子把報紙撕開貼成混亂地圖、並在中央畫下那顆星星時，閱讀就不再只是考卷上的文字，而是療癒青春的生命力！」</div>
+        <a href="folder-8.html" target="_blank" class="speaker-link">🚀 8.跨域創新(SEL) ↗</a>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 05 ==================== -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-badge">重點 05 / 10</span>
+          <h1 class="slide-main-title">跨模態美感轉譯：<span class="hl">手繪水彩 × AI 提示詞</span>「閱讀明信片」</h1>
+        </div>
+        <span class="slide-pillar-tag" style="background:#E0F2FE;">🎨 Y 閱己 × E 閱智｜國文科 × 視覺藝術科 × 生成式 AI 提示詞工程</span>
+      </div>
+
+      <div class="slide-body wide-photos">
+        <div class="points-col">
+          <div class="point-card">
+            <div class="p-icon">🖌️</div>
+            <div class="p-text">
+              <h3>手繪美學組：提煉書籍核心金句 × 色彩心理學構圖</h3>
+              <p>70203 陳以恩榮獲特優；<span class="kw">70106 王彥呈（體育班）</span>更以細膩筆觸榮獲優等，證明在錦和連運動健將都能綻放深刻的文學與藝術光芒！</p>
+            </div>
+          </div>
+
+          <div class="point-card" style="background:var(--blue-bg);">
+            <div class="p-icon">🤖</div>
+            <div class="p-text">
+              <h3>AI 數位創作組：把抽象文學意境轉化為精準 Prompt！</h3>
+              <p>• <span class="kw-blue">70313 朱鴹叡 (優等)</span>：下達「清晨第一束光透過<span class="kw">丁達爾效應</span>照亮少年，黑白漸層象徵救贖」提示詞！<br>• <span class="kw-blue">70503 林言恩 (優等)</span>：設定「馬卡龍水彩、賓士貓 Mo 踏入森林尋光」意象！</p>
+            </div>
+          </div>
+
+          <div class="point-card">
+            <div class="p-icon">💝</div>
+            <div class="p-text">
+              <h3>從課堂作品到校園文創：印製實體明信片愛心義賣</h3>
+              <p>累計超過 80 件參賽與 21 件獲獎傑作，全數附上完整「創作理念說明」，更印製成實體明信片於校慶公益義賣！</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="photos-col grid-2x2">
+          <div class="photo-card" onclick="openZoom('assets/img/image17.png', '【國中手繪組特優】70203 陳以恩 — 閱讀明信片原件')">
+            <img src="assets/img/image17.png" alt="70203陳以恩特優" />
+            <span class="photo-badge">🏆 手繪組特優｜70203 陳以恩</span>
+            <div class="photo-caption"><span>文字金句轉譯溫暖水彩構圖</span></div>
+          </div>
+          <div class="photo-card" onclick="openZoom('assets/img/image18.png', '【國中手繪組優等】70106 王彥呈（體育班）— 閱讀明信片原件')">
+            <img src="assets/img/image18.png" alt="70106王彥呈優等" />
+            <span class="photo-badge">🥇 手繪組優等｜70106 王彥呈(體育班)</span>
+            <div class="photo-caption"><span>體育班學子展現細膩文學美感</span></div>
+          </div>
+          <div class="photo-card" onclick="openZoom('assets/img/image20.png', '【國中 AI 創作組優等】70313 朱鴹叡 — 結合「丁達爾效應」光影之 AI 提示詞作品')">
+            <img src="assets/img/image20.png" alt="70313朱鴹叡AI優等" />
+            <span class="photo-badge">🤖 AI 組優等｜70313 丁達爾效應光影</span>
+            <div class="photo-caption"><span>結合科學光影與高階語文 Prompt</span></div>
+          </div>
+          <div class="photo-card" onclick="openZoom('assets/img/image19.png', '【國中 AI 創作組優等】70503 林言恩 — 賓士貓 Mo 踏入森林尋光之旅')">
+            <img src="assets/img/image19.png" alt="70503林言恩AI優等" />
+            <span class="photo-badge">🤖 AI 組優等｜70503 賓士貓森林尋光</span>
+            <div class="photo-caption"><span>馬卡龍水彩筆觸 AI 提示詞轉譯</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-bar">
+        <div class="speaker-quote">🎤 報告金句：「要讓 AI 畫出觸動人心的明信片，孩子必須先讀懂文本意境，再鍛鍊出最精準的語文提示詞描寫力！」</div>
+        <a href="folder-4.html" target="_blank" class="speaker-link">🎨 4.閱讀明信片專區 ↗</a>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 06 ==================== -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-badge">重點 06 / 10</span>
+          <h1 class="slide-main-title">主軸 E 閱智：<span class="hl">連續三年公開授課</span> × 因材網「E度 AI」協作</h1>
+        </div>
+        <span class="slide-pillar-tag" style="background:#F3E8FF;">👩‍🏫 E 閱智・數位賦能｜113筆記小說 ➔ 114數位眼×詩人心 ➔ 115文言公開課</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="points-col">
+          <div class="point-card">
+            <div class="p-icon">🌳</div>
+            <div class="p-text">
+              <h3>七年級〈遇見一株樹：數位眼×詩人心〉平板觀察與新詩</h3>
+              <p>學生手持平板走入校園微距拍攝樹木光影，結合<span class="kw-blue">五感曼陀羅思考法</span>與 AI 意象切磋，將自然觀察化為動人現代詩！</p>
+            </div>
+          </div>
+
+          <div class="point-card" style="background:var(--blue-bg);">
+            <div class="p-icon">🤖</div>
+            <div class="p-text">
+              <h3>八年級〈古典筆記小說〉× 因材網「E度 AI 助教」破難詞</h3>
+              <p>閱讀《國文小尖兵》〈定伯賣鬼〉〈代郡雞妖〉時，學生向<span class="kw">因材網生成式 AI「E度」</span>提問釋義，再以<span class="kw">「情節故事山」</span>拆解並改寫現代劇本！</p>
+            </div>
+          </div>
+
+          <div class="point-card">
+            <div class="p-icon">👩‍🏫</div>
+            <div class="p-text">
+              <h3>連續三年辦理閱讀公開授課（113・114・115）促成典範轉移</h3>
+              <p>陳恬伶老師等閱推團隊開放課堂，領域教師入班觀議課，將「AI 協作＋故事山結構拆解」擴散為全校共享教學模組！</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="photos-col grid-1-top-2-bot">
+          <div class="photo-card" onclick="openZoom('assets/img/image26.png', '陳恬伶老師【文言與筆記小說閱讀公開課】：講解故事山結構與因材網 E度 AI 協作')">
+            <img src="assets/img/image26.png" alt="文言與筆記小說公開課" />
+            <span class="photo-badge">👩‍🏫 113～115 連續三年典範公開授課</span>
+            <div class="photo-caption">
+              <span>情節故事山結構分析 × 教育部因材網「E度 AI 助教」翻譯改寫</span>
+              <span class="zoom-hint">🔍 點圖放大</span>
+            </div>
+          </div>
+          <div class="photo-card" onclick="openZoom('6.創意閱讀/1141125數位教學公開課/LINE_ALBUM_20251125恬伶公開授課_251212_1.jpg', '1141125 數位教學公開課：學生使用平板與生成式 AI 共學實況')">
+            <img src="6.創意閱讀/1141125數位教學公開課/LINE_ALBUM_20251125恬伶公開授課_251212_1.jpg" alt="114數位教學公開課" />
+            <span class="photo-badge">💻 114 數位教學公開課</span>
+            <div class="photo-caption"><span>平板入班×數位眼詩人心</span></div>
+          </div>
+          <div class="photo-card" onclick="openZoom('8.跨域創新/數位融入/恬伶E度作文/E度教我寫詩.png', '學生運用教育部因材網「E度 AI 助教」進行新詩意象推敲與語法自學')">
+            <img src="8.跨域創新/數位融入/恬伶E度作文/E度教我寫詩.png" alt="E度教我寫詩" />
+            <span class="photo-badge">🤖 因材網 E度 AI 助教</span>
+            <div class="photo-caption"><span>「E度教我寫詩」人機協作</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-bar">
+        <div class="speaker-quote">🎤 報告金句：「面對文言文與長文，因材網『E度 AI』就像每位孩子的貼身家教，搭配故事山鷹架，古文瞬間變成立體好戲！」</div>
+        <a href="folder-6.html" target="_blank" class="speaker-link">💡 6.創意閱讀專區 ↗</a>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 07 ==================== -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-badge">重點 07 / 10</span>
+          <h1 class="slide-main-title">思辨與展演：<span class="hl">16週讀報三部曲</span> × 八年級<span class="hl">小小說書人</span></h1>
+        </div>
+        <span class="slide-pillar-tag" style="background:#FFEDD5;">🗞️ E 閱智 × Y 閱己｜人人化身讀報出題官 ＆ 萬字長篇小說立體舞台劇</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="points-col">
+          <div class="point-card" style="background:var(--orange-bg);">
+            <div class="p-icon">🗞️</div>
+            <div class="p-text">
+              <h3>《好讀周報》16 週三部曲：從被動看報升格為「出題官」！</h3>
+              <p>① <span class="kw">10月初聯合報專家講座</span>（導師隨班共學讀報筆記力）➔ ② <span class="kw">圖書股長培力＋各班輪值設計誘答題</span> ➔ ③ <span class="kw">跨班連線 Kahoot! 空中 PK 賽</span>！</p>
+            </div>
+          </div>
+
+          <div class="point-card">
+            <div class="p-icon">🎭</div>
+            <div class="p-text">
+              <h3>【國文×表藝】八年級小小說書人：3分鐘演活萬字長篇小說</h3>
+              <p>小組共讀《被討厭的勇氣》《查理與巧克力工廠》《吹夢巨人》《詩魂》，以<span class="kw-blue">情節故事山</span>拆解主角衝突，改編為舞台展演與微電影！</p>
+            </div>
+          </div>
+
+          <div class="kpi-strip">
+            <div class="kpi-box">
+              <div class="kpi-num">16 週閉環</div>
+              <div class="kpi-label">輸入➔出題轉化➔雲端PK</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-num">34+ 期題庫</div>
+              <div class="kpi-label">每週全校好讀有獎徵答</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-num">10 部得獎片</div>
+              <div class="kpi-label">815/803班勇奪說書特優</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="photos-col grid-1-top-2-bot">
+          <div class="photo-card" onclick="openZoom('0磐石送件/磐石活動照(錦和高中)/雲端PK~讀報挑戰賽.jpg', '讀報三部曲之巔峰對決：八年級跨班同步連線 Kahoot! 雲端 PK 讀報挑戰賽')">
+            <img src="0磐石送件/磐石活動照(錦和高中)/雲端PK~讀報挑戰賽.jpg" alt="雲端PK讀報挑戰賽" />
+            <span class="photo-badge">🏆 三部曲壓軸：跨班雲端 PK 讀報挑戰賽</span>
+            <div class="photo-caption">
+              <span>全學年採用「學生自命題題庫」同步連線 Kahoot! 搶答爭鋒！</span>
+              <span class="zoom-hint">🔍 點圖放大</span>
+            </div>
+          </div>
+          <div class="photo-card" onclick="openZoom('0磐石送件/磐石活動照(錦和高中)/認真作筆記~讀報講座.jpg', '首部曲：聯合報寫作教室專家入校傳授「讀報筆記力」，導師隨班共學')">
+            <img src="0磐石送件/磐石活動照(錦和高中)/認真作筆記~讀報講座.jpg" alt="讀報講座作筆記" />
+            <span class="photo-badge">📝 首部曲：專家讀報講座</span>
+            <div class="photo-caption"><span>敏捷調至10月初・導師隨班共學</span></div>
+          </div>
+          <div class="photo-card" onclick="openZoom('assets/img/image21.png', '【國文×表藝】八年級小小說書人特優作品（815班《被討厭的勇氣》課題分離展演）')">
+            <img src="assets/img/image21.png" alt="小小說書人展演" />
+            <span class="photo-badge">🎭 國文×表藝：小小說書人</span>
+            <div class="photo-caption"><span>815班《被討厭的勇氣》特優</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-bar">
+        <div class="speaker-quote">🎤 報告金句：「要設計出能騙過別班同學的『誘答選項』，孩子必須把整份報紙讀得無比透徹——這就是最高階的閱讀轉化！」</div>
+        <div style="display:flex; gap:0.5rem;">
+          <a href="folder-1.html" target="_blank" class="speaker-link">🗞️ 1.好讀周報 ↗</a>
+          <a href="folder-2.html" target="_blank" class="speaker-link">🎭 2.小小說書人 ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 08 ==================== -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-badge">重點 08 / 10</span>
+          <h1 class="slide-main-title">主軸 S 閱世：<span class="hl">自然科綠能桌遊</span> × 萬聖節查核 × <span class="hl">減塑雕塑</span></h1>
+        </div>
+        <span class="slide-pillar-tag" style="background:#D1FAE5; color:#065F46;">🌱 S 閱世・永續公民｜自然科 SDGs 7 潔淨能源 × 視藝科 SDGs 12 減塑行動</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="points-col">
+          <div class="point-card" style="background:var(--green-bg);">
+            <div class="p-icon">🔋</div>
+            <div class="p-text">
+              <h3>【自然×圖資 SDGs 7】國七「能源好好玩」入館檢索＆綠能大富翁</h3>
+              <p>自然科教師帶隊入館檢索太陽能、風力、地熱文獻，學生不僅上台簡報，更自主設計出實體卡牌桌遊<span class="kw-green">《綠能大富翁》</span>！</p>
+            </div>
+          </div>
+
+          <div class="point-card">
+            <div class="p-icon">🎃</div>
+            <div class="p-text">
+              <h3>【當科學遇見萬聖節】20 則電力異常怪談 × 物理原理破案</h3>
+              <p>走廊燈光閃爍、書頁無風自動？學生必須入館查核<span class="kw-blue">低頻聲波共振、靜電感應、電磁感應</span>等自然科原理，撰寫科學破案故事接龍！</p>
+            </div>
+          </div>
+
+          <div class="point-card">
+            <div class="p-icon">♻️</div>
+            <div class="p-text">
+              <h3>【視藝×閱讀 SDGs 12】《安妮新聞》〈吸管的進化〉36組紙膜雕塑</h3>
+              <p>精讀台灣限塑政策演進文本，收集廢報紙、寶特瓶與舊吸管進行多視角立體創作，完成<span class="kw">36 組「變廢為寶環保紙膜雕塑」</span>！</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="photos-col grid-1-top-2-bot">
+          <div class="photo-card" onclick="openZoom('0磐石送件/磐石活動照(錦和高中)/結合能源教育的圖書館利用教育.jpg', '國七自然科校本課程「能源好好玩」帶隊入館檢索綠能文獻實況')">
+            <img src="0磐石送件/磐石活動照(錦和高中)/結合能源教育的圖書館利用教育.jpg" alt="自然科結合圖書館利用教育" />
+            <span class="photo-badge">🔋 自然科 × 圖書館利用教育 (SDGs 7)</span>
+            <div class="photo-caption">
+              <span>國七自然科「能源好好玩」入館檢索綠能文獻與平板共作</span>
+              <span class="zoom-hint">🔍 點圖放大</span>
+            </div>
+          </div>
+          <div class="photo-card" onclick="openZoom('assets/img/image32.png', '國七學生將檢索到的潔淨能源知識轉化設計而成的實體《綠能大富翁》桌遊')">
+            <img src="assets/img/image32.png" alt="綠能大富翁" />
+            <span class="photo-badge">🎲 學生自製《綠能大富翁》</span>
+            <div class="photo-caption"><span>把綠能文獻變成實體桌遊！</span></div>
+          </div>
+          <div class="photo-card" onclick="openZoom('assets/img/image23.jpeg', '《安妮新聞》VOL.18〈吸管的進化〉：學生利用廢報紙與寶特瓶創作 36 組環保紙膜雕塑')">
+            <img src="assets/img/image23.jpeg" alt="環保紙膜雕塑" />
+            <span class="photo-badge">♻️ 36組減塑紙膜雕塑 (SDGs 12)</span>
+            <div class="photo-caption"><span>《安妮新聞》吸管的進化立體展</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-bar">
+        <div class="speaker-quote">🎤 報告金句：「在錦和，科普閱讀不是背誦公式，而是用物理原理破解萬聖節怪談、親手做出綠能大富翁與減塑雕塑！」</div>
+        <a href="folder-8.html" target="_blank" class="speaker-link">🚀 8.跨域創新專區 ↗</a>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 09 ==================== -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-badge">重點 09 / 10</span>
+          <h1 class="slide-main-title">多元與國際：<span class="hl">山海獵人原民大富翁</span> × <span class="hl">巴拉圭＆美國雙語走讀</span></h1>
+        </div>
+        <span class="slide-pillar-tag" style="background:#FEF08A;">🌎 S 閱世・全球公民｜原民文化 HTML5 數位桌遊 × 完全中學國際交流共融</span>
+      </div>
+
+      <div class="slide-body wide-photos">
+        <div class="points-col">
+          <div class="point-card">
+            <div class="p-icon">🏹</div>
+            <div class="p-text">
+              <h3>世界閱讀日「山海獵人三關試煉」➔ 書展借閱率飆升 +40%！</h3>
+              <p>結合原民常識問答、封面圖騰檢索（祖靈之眼、飛魚、白鹿）與獵書行動；閱推教師更<span class="kw">親自撰寫程式碼開發 HTML5《台灣原住民文化大富翁》</span>配樂網頁遊戲！</p>
+            </div>
+          </div>
+
+          <div class="point-card" style="background:var(--blue-bg);">
+            <div class="p-icon">🇵🇾</div>
+            <div class="p-text">
+              <h3>【使節開箱】巴拉圭大使蒞校 ＆ 圖書館 5 大海報雙語尋寶</h3>
+              <p>發揮完中優勢將國際資源引入國中部！圖書館自製巴拉圭地理、瑪黛茶、雙面國旗海報，學生完成尋寶單並以瓜拉尼語跟大使熱情互動！</p>
+            </div>
+          </div>
+
+          <div class="point-card" style="background:var(--green-bg);">
+            <div class="p-icon">🇺🇸</div>
+            <div class="p-text">
+              <h3>接待美國加州州立大學 (CSULB) 大稻埕中英雙語走讀</h3>
+              <p>結合自編<span class="kw-green">《1150702-大稻埕走讀手冊》</span>，帶領學子踏查霞海城隍廟、李臨秋故居，以全英語向美國大學生導覽台灣在地文化！</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="photos-col grid-2x2">
+          <div class="photo-card" onclick="openZoom('assets/img/image3.png', '4月世界閱讀日【山海獵人試煉場】三大試煉闖關與主題書展借閱熱潮')">
+            <img src="assets/img/image3.png" alt="山海獵人試煉場" />
+            <span class="photo-badge">🏹 世界閱讀日：山海獵人三關試煉</span>
+            <div class="photo-caption"><span>原民書展借閱率大幅躍升 >40%</span></div>
+          </div>
+          <div class="photo-card" onclick="openZoom('assets/img/image33.png', '閱推教師自主撰寫 HTML5/JS 開發之《台灣原住民文化大富翁》配樂網頁遊戲')">
+            <img src="assets/img/image33.png" alt="原民音樂大富翁" />
+            <span class="photo-badge">🕹️ 教師自製 HTML5《原民音樂大富翁》</span>
+            <div class="photo-caption"><span>內建16族祭儀問答與祖靈之眼圖騰</span></div>
+          </div>
+          <div class="photo-card" onclick="openZoom('assets/img/image16.png', '【使節開箱】巴拉圭大使入校交流，學生完成圖書館雙語尋寶單熱情互動')">
+            <img src="assets/img/image16.png" alt="巴拉圭使節開箱" />
+            <span class="photo-badge">🇵🇾 巴拉圭大使入校「使節開箱」</span>
+            <div class="photo-caption"><span>圖書館5大主題海報雙語尋寶</span></div>
+          </div>
+          <div class="photo-card" onclick="openZoom('assets/img/image15.jpeg', '接待美國加州州立大學長堤分校 (CSULB) 進行大稻埕中英雙語走讀導覽')">
+            <img src="assets/img/image15.jpeg" alt="大稻埕雙語走讀" />
+            <span class="photo-badge">🇺🇸 接待美國 CSULB 大稻埕雙語走讀</span>
+            <div class="photo-caption"><span>立足台灣在地・用英語向世界說書</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-bar">
+        <div class="speaker-quote">🎤 報告金句：「我們把完全中學的國際交流優勢共融到國中部，讓孩子先在圖書館讀懂世界，再用雙語向巴拉圭大使與美國大學生介紹台灣！」</div>
+        <a href="8.跨域創新/走讀系列/大稻埕走讀/1150702-大稻埕走讀手冊.pdf" target="_blank" class="speaker-link">📘 大稻埕走讀手冊 PDF ↗</a>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 10 ==================== -->
+    <section class="slide">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <span class="slide-num-badge">重點 10 / 10</span>
+          <h1 class="slide-main-title">亮眼實證與外溢：<span class="hl">全市 SR 最高進步獎</span> × <span class="hl">扶輪之子共伴</span></h1>
+        </div>
+        <span class="slide-pillar-tag" style="background:#FEF08A;">🏆 權威常模數據鐵證 × 會考學力拔尖 × 社區公益反向輸出</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="points-col">
+          <div class="point-card" style="background:#FFFBEB;">
+            <div class="p-icon">📊</div>
+            <div class="p-text">
+              <h3>科學數據鐵證：勇奪 115 新北市國中組【SR 最高進步獎】</h3>
+              <p>臺師大 SR / DACC 前後測常模追蹤：八年級在最高階<span class="kw">「推論分析」與「詮釋整合」平均 PR 值躍升逾 15%</span>，徹底突破長文閱讀痛點！</p>
+            </div>
+          </div>
+
+          <div class="point-card" style="background:var(--pink-bg);">
+            <div class="p-icon">💝</div>
+            <div class="p-text">
+              <h3>專業反向輸出社區：首創「扶輪之子月月讀」公益共伴</h3>
+              <p>本校研發之<span class="kw">〈ORID 閱讀學習單〉</span>獲在地扶輪社高度肯定，指定為扶輪之子每月請領獎學金之必修成長指標，化單向資助為心靈賦能！</p>
+            </div>
+          </div>
+
+          <div class="kpi-strip">
+            <div class="kpi-box">
+              <div class="kpi-num">PR +15%↑</div>
+              <div class="kpi-label">高階推論與詮釋整合躍升</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-num">100% 收齊</div>
+              <div class="kpi-label">國七國八 ORID 閱讀護照</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-num">+40% 成長</div>
+              <div class="kpi-label">主題書展借閱＆會考拔尖</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="photos-col grid-1-top-2-bot">
+          <div class="photo-card" onclick="openZoom('0磐石送件/磐石活動照(錦和高中)/115年DACC最佳進步獎頒獎.png', '榮獲 115 年度新北市適性閱讀 SR / DACC 最高進步獎頒獎典禮')">
+            <img src="0磐石送件/磐石活動照(錦和高中)/115年DACC最佳進步獎頒獎.png" alt="115年DACC最佳進步獎頒獎" />
+            <span class="photo-badge">🏆 115年新北市 SR / DACC 最佳進步獎頒獎</span>
+            <div class="photo-caption">
+              <span>新北市教育局長與臺師大團隊親自頒獎肯定錦和閱讀扎根成效！</span>
+              <span class="zoom-hint">🔍 點圖放大</span>
+            </div>
+          </div>
+          <div class="photo-card" onclick="openZoom('assets/img/image5.png', '每學期朝會公開表揚「閱讀護照之錦堡閱讀獎（鑽石獎、環球獎、星光獎）」')">
+            <img src="assets/img/image5.png" alt="錦堡閱讀獎頒獎" />
+            <span class="photo-badge">🏅 錦堡鑽石閱讀獎表揚</span>
+            <div class="photo-caption"><span>累計滿25點獲頒禮券與榮譽獎狀</span></div>
+          </div>
+          <div class="photo-card" onclick="openZoom('7.暑期閱讀海報展/114新生暑期優良海報作品1/114新生暑期優良海報作品1_page-0001.jpg', '超過 80 件暑期優良手繪閱讀海報於校園巡迴展出')">
+            <img src="7.暑期閱讀海報展/114新生暑期優良海報作品1/114新生暑期優良海報作品1_page-0001.jpg" alt="暑期優良閱讀海報展" />
+            <span class="photo-badge">🖼️ 84+ 件暑期閱讀海報展</span>
+            <div class="photo-caption"><span>圖文整合輸出・校園美感巡迴展</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-bar">
+        <div class="speaker-quote">🎤 結語金句：「『原來看懂長篇文章並寫出自己的想法，這麼有成就感！』—— 走過心靈開門(Y)、數位賦能(E)、永續公民(S)，在錦和讀書，真好！JINHE, YES!」</div>
+        <a href="jinhego-yes.html" class="speaker-link">🏠 返回主頁探索 9 大專區 ↗</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= BOTTOM PRESENTER CONTROL BAR ================= -->
+  <footer class="presenter-bottom">
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <button class="nav-btn" id="prevBtn" onclick="stepSlide(-1)">◀ 上一張重點 (←)</button>
+
+    <div class="slide-counter">
+      簡報頁碼：<strong id="curSlideNum" style="color:var(--gold); font-size:1.3rem;">1</strong> / 10
+      <span style="font-size:0.85rem; color:#94A3B8; margin-left:0.75rem;">（可使用鍵盤 ← → 方向鍵、空白鍵或上方 01~10 按鈕快速跳頁）</span>
+    </div>
+
+    <button class="nav-btn" id="nextBtn" onclick="stepSlide(1)">下一張重點 (→ / 空白鍵) ▶</button>
+  </footer>
+
+  <!-- ================= PHOTO ZOOM LIGHTBOX MODAL ================= -->
+  <div class="zoom-modal" id="zoomModal" onclick="if(event.target===this) closeZoom()">
+    <div class="zoom-box">
+      <div class="zoom-img-wrap">
+        <img id="zImg" src="" alt="放大特寫" />
+      </div>
+      <div class="zoom-foot">
+        <h3 id="zCaption" style="font-size:1.35rem; font-weight:900; color:var(--gold-light);"></h3>
+        <button class="btn-home" onclick="closeZoom()">✖ 關閉特寫 (Esc)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 10-SLIDE OVERVIEW MODAL ================= -->
+  <div class="overview-modal" id="overviewModal" onclick="if(event.target===this) toggleOverview()">
+    <div style="max-width:1300px; width:100%; margin:0 auto; display:flex; justify-content:space-between; align-items:center; color:#fff;">
+      <h2 style="font-size:1.8rem; font-weight:900; color:var(--gold);">📋 115錦和高中(國中部)閱讀磐石獎・10張簡報重點總覽（點選直接跳頁）</h2>
+      <button class="btn-home" onclick="toggleOverview()">✖ 關閉總覽</button>
+    </div>
+    <div class="ov-grid">
+      <div class="ov-card" onclick="goSlide(0); toggleOverview();">
+        <div class="ov-num">SLIDE 01</div>
+        <div class="ov-title">方案總綱：錦和閱世，JINHE, YES! 翻轉四大閱讀困境</div>
+      </div>
+      <div class="ov-card" onclick="goSlide(1); toggleOverview();">
+        <div class="ov-num">SLIDE 02</div>
+        <div class="ov-title">團隊與空間：跨科寫入領域計畫 × 閱讀扭蛋機與錦堡空間</div>
+      </div>
+      <div class="ov-card" onclick="goSlide(2); toggleOverview();">
+        <div class="ov-num">SLIDE 03</div>
+        <div class="ov-title">校本自編雙核心：《國文小尖兵》4冊 ×《ORID 閱讀護照》100%收齊</div>
+      </div>
+      <div class="ov-card" onclick="goSlide(3); toggleOverview();">
+        <div class="ov-num">SLIDE 04</div>
+        <div class="ov-title">主軸 Y 閱己：SEL 青春濃霧展 ×〈我的混亂地圖〉畫希望之星⭐</div>
+      </div>
+      <div class="ov-card" onclick="goSlide(4); toggleOverview();">
+        <div class="ov-num">SLIDE 05</div>
+        <div class="ov-title">主軸 Y×E 美感與AI：手繪水彩 × 生成式 AI 提示詞「閱讀明信片」</div>
+      </div>
+      <div class="ov-card" onclick="goSlide(5); toggleOverview();">
+        <div class="ov-num">SLIDE 06</div>
+        <div class="ov-title">主軸 E 閱智：連續三年公開授課 × 數位眼詩人心 × 因材網 E度 AI</div>
+      </div>
+      <div class="ov-card" onclick="goSlide(6); toggleOverview();">
+        <div class="ov-num">SLIDE 07</div>
+        <div class="ov-title">思辨與展演：16週《好讀周報》出題官雲端PK × 八年級小小說書人</div>
+      </div>
+      <div class="ov-card" onclick="goSlide(7); toggleOverview();">
+        <div class="ov-num">SLIDE 08</div>
+        <div class="ov-title">主軸 S 閱世：自然科綠能大富翁 × 萬聖節科學查核 × 36組減塑雕塑</div>
+      </div>
+      <div class="ov-card" onclick="goSlide(8); toggleOverview();">
+        <div class="ov-num">SLIDE 09</div>
+        <div class="ov-title">多元與國際：山海獵人 HTML5 原民大富翁 × 巴拉圭使節＆大稻埕雙語走讀</div>
+      </div>
+      <div class="ov-card" onclick="goSlide(9); toggleOverview();">
+        <div class="ov-num">SLIDE 10</div>
+        <div class="ov-title">亮眼實證與外溢：勇奪新北市「SR 最高進步獎」× 扶輪之子公益共伴</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.s-dot');
+    const totalSlides = slides.length;
+    const fontScales = [1, 1.12, 1.22];
+    const fontLabels = ['標準', '放大 112%', '特大 122%'];
+    let fontIdx = 0;
+
+    function updateSlideUI() {
+      slides.forEach((s, idx) => {
+        s.classList.toggle('active', idx === currentSlide);
+      });
+      dots.forEach((d, idx) => {
+        d.classList.toggle('active', idx === currentSlide);
+      });
+      document.getElementById('curSlideNum').textContent = currentSlide + 1;
+      document.getElementById('progressFill').style.width = (((currentSlide + 1) / totalSlides) * 100) + '%';
+      document.getElementById('prevBtn').disabled = (currentSlide === 0);
+      document.getElementById('nextBtn').disabled = (currentSlide === totalSlides - 1);
+    }
+
+    function goSlide(idx) {
+      if (idx < 0 || idx >= totalSlides) return;
+      currentSlide = idx;
+      updateSlideUI();
+    }
+
+    function stepSlide(delta) {
+      goSlide(currentSlide + delta);
+    }
+
+    function cycleFontSize() {
+      fontIdx = (fontIdx + 1) % fontScales.length;
+      document.documentElement.style.setProperty('--font-scale', fontScales[fontIdx]);
+      document.getElementById('fontBtn').textContent = '🔍 字體放大 (' + fontLabels[fontIdx] + ')';
+    }
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+
+    function openZoom(src, caption) {
+      document.getElementById('zImg').src = src;
+      document.getElementById('zCaption').textContent = caption;
+      document.getElementById('zoomModal').classList.add('open');
+    }
+
+    function closeZoom() {
+      document.getElementById('zoomModal').classList.remove('open');
+    }
+
+    function toggleOverview() {
+      document.getElementById('overviewModal').classList.toggle('open');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (document.getElementById('zoomModal').classList.contains('open')) {
+        if (e.key === 'Escape') closeZoom();
+        return;
+      }
+      if (document.getElementById('overviewModal').classList.contains('open')) {
+        if (e.key === 'Escape') toggleOverview();
+        return;
+      }
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        stepSlide(1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        stepSlide(-1);
+      } else if (e.key >= '1' && e.key <= '9') {
+        goSlide(parseInt(e.key, 10) - 1);
+      } else if (e.key === '0') {
+        goSlide(9);
+      }
+    });
+
+    updateSlideUI();
+  </script>
+</body>
+</html>
