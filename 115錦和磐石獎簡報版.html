@@ -154,6 +154,46 @@
       color: var(--gold-light);
     }
 
+    .font-control-group {
+      display: inline-flex;
+      align-items: center;
+      background: #1E293B;
+      border: 2px solid #64748B;
+      border-radius: 999px;
+      padding: 0.15rem 0.35rem;
+      gap: 0.2rem;
+    }
+
+    .font-label-tag {
+      font-size: 0.82rem;
+      font-weight: 900;
+      color: #CBD5E1;
+      padding: 0 0.35rem;
+    }
+
+    .f-scale-btn {
+      background: transparent;
+      color: #CBD5E1;
+      border: 1.5px solid transparent;
+      border-radius: 999px;
+      padding: 0.22rem 0.55rem;
+      font-weight: 900;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .f-scale-btn:hover {
+      color: #fff;
+      background: #334155;
+    }
+
+    .f-scale-btn.active {
+      background: var(--gold);
+      color: var(--dark);
+      border-color: #fff;
+    }
+
     /* ================= FULL-SCREEN SLIDE STAGE ================= */
     .slide-stage {
       width: 100vw;
@@ -693,8 +733,17 @@
     </div>
 
     <div class="top-right">
+      <div class="font-control-group" title="調整簡報字體大小（80%～120%）">
+        <span class="font-label-tag">🔤 字級</span>
+        <button class="f-scale-btn" onclick="stepFontSize(-1)" title="縮小字體">A-</button>
+        <button class="f-scale-btn f-pct" data-scale="0.8" onclick="setFontScale(0.8)">80%</button>
+        <button class="f-scale-btn f-pct" data-scale="0.9" onclick="setFontScale(0.9)">90%</button>
+        <button class="f-scale-btn f-pct active" data-scale="1" onclick="setFontScale(1)">100%</button>
+        <button class="f-scale-btn f-pct" data-scale="1.1" onclick="setFontScale(1.1)">110%</button>
+        <button class="f-scale-btn f-pct" data-scale="1.2" onclick="setFontScale(1.2)">120%</button>
+        <button class="f-scale-btn" onclick="stepFontSize(1)" title="放大字體">A+</button>
+      </div>
       <button class="tool-btn" onclick="toggleOverview()">📋 10大重點總覽</button>
-      <button class="tool-btn" onclick="cycleFontSize()" id="fontBtn">🔍 字體放大 (標準)</button>
       <button class="tool-btn" onclick="toggleFullScreen()">🖥️ 全螢幕簡報</button>
     </div>
   </header>
@@ -760,11 +809,6 @@
           </div>
         </div>
       </div>
-
-      <div class="speaker-bar">
-        <div class="speaker-quote">🎤 報告金句：「我們以『滲透與擴散』為雙翼，陪孩子向內打開心門 (Y)、駕馭 AI 科技 (E)、自信走入大世界 (S)！」</div>
-        <a href="jinhego-yes.html" class="speaker-link">🌐 檢視完整網站 ↗</a>
-      </div>
     </section>
 
     <!-- ==================== SLIDE 02 ==================== -->
@@ -824,11 +868,6 @@
             <div class="photo-caption"><span>家長志工隊＆特教生無障礙闖關</span></div>
           </div>
         </div>
-      </div>
-
-      <div class="speaker-bar">
-        <div class="speaker-quote">🎤 報告金句：「我們用一部扭蛋機與每個月的動態推播短片，打破索書號的冰冷高牆，讓圖書館成為下課最熱鬧的錦堡樂園！」</div>
-        <a href="folder-9.html" target="_blank" class="speaker-link">🎮 9.利用教育專區 ↗</a>
       </div>
     </section>
 
@@ -897,11 +936,6 @@
           </div>
         </div>
       </div>
-
-      <div class="speaker-bar">
-        <div class="speaker-quote">🎤 報告金句：「有了 ORID 四層次思考鷹架，孩子不再怕寫心得，更創下國中部七、八年級《閱讀護照》100% 全員收齊的奇蹟！」</div>
-        <a href="folder-5.html" target="_blank" class="speaker-link">📘 5.自編教材專區 ↗</a>
-      </div>
     </section>
 
     <!-- ==================== SLIDE 04 ==================== -->
@@ -961,11 +995,6 @@
             <div class="photo-caption"><span>教師節感恩快閃＆聖誕快遞</span></div>
           </div>
         </div>
-      </div>
-
-      <div class="speaker-bar">
-        <div class="speaker-quote">🎤 報告金句：「當孩子把報紙撕開貼成混亂地圖、並在中央畫下那顆星星時，閱讀就不再只是考卷上的文字，而是療癒青春的生命力！」</div>
-        <a href="folder-8.html" target="_blank" class="speaker-link">🚀 8.跨域創新(SEL) ↗</a>
       </div>
     </section>
 
@@ -1029,11 +1058,6 @@
           </div>
         </div>
       </div>
-
-      <div class="speaker-bar">
-        <div class="speaker-quote">🎤 報告金句：「要讓 AI 畫出觸動人心的明信片，孩子必須先讀懂文本意境，再鍛鍊出最精準的語文提示詞描寫力！」</div>
-        <a href="folder-4.html" target="_blank" class="speaker-link">🎨 4.閱讀明信片專區 ↗</a>
-      </div>
     </section>
 
     <!-- ==================== SLIDE 06 ==================== -->
@@ -1093,11 +1117,6 @@
             <div class="photo-caption"><span>「E度教我寫詩」人機協作</span></div>
           </div>
         </div>
-      </div>
-
-      <div class="speaker-bar">
-        <div class="speaker-quote">🎤 報告金句：「面對文言文與長文，因材網『E度 AI』就像每位孩子的貼身家教，搭配故事山鷹架，古文瞬間變成立體好戲！」</div>
-        <a href="folder-6.html" target="_blank" class="speaker-link">💡 6.創意閱讀專區 ↗</a>
       </div>
     </section>
 
@@ -1166,14 +1185,6 @@
           </div>
         </div>
       </div>
-
-      <div class="speaker-bar">
-        <div class="speaker-quote">🎤 報告金句：「要設計出能騙過別班同學的『誘答選項』，孩子必須把整份報紙讀得無比透徹——這就是最高階的閱讀轉化！」</div>
-        <div style="display:flex; gap:0.5rem;">
-          <a href="folder-1.html" target="_blank" class="speaker-link">🗞️ 1.好讀周報 ↗</a>
-          <a href="folder-2.html" target="_blank" class="speaker-link">🎭 2.小小說書人 ↗</a>
-        </div>
-      </div>
     </section>
 
     <!-- ==================== SLIDE 08 ==================== -->
@@ -1233,11 +1244,6 @@
             <div class="photo-caption"><span>《安妮新聞》吸管的進化立體展</span></div>
           </div>
         </div>
-      </div>
-
-      <div class="speaker-bar">
-        <div class="speaker-quote">🎤 報告金句：「在錦和，科普閱讀不是背誦公式，而是用物理原理破解萬聖節怪談、親手做出綠能大富翁與減塑雕塑！」</div>
-        <a href="folder-8.html" target="_blank" class="speaker-link">🚀 8.跨域創新專區 ↗</a>
       </div>
     </section>
 
@@ -1300,11 +1306,6 @@
             <div class="photo-caption"><span>立足台灣在地・用英語向世界說書</span></div>
           </div>
         </div>
-      </div>
-
-      <div class="speaker-bar">
-        <div class="speaker-quote">🎤 報告金句：「我們把完全中學的國際交流優勢共融到國中部，讓孩子先在圖書館讀懂世界，再用雙語向巴拉圭大使與美國大學生介紹台灣！」</div>
-        <a href="8.跨域創新/走讀系列/大稻埕走讀/1150702-大稻埕走讀手冊.pdf" target="_blank" class="speaker-link">📘 大稻埕走讀手冊 PDF ↗</a>
       </div>
     </section>
 
@@ -1372,11 +1373,6 @@
             <div class="photo-caption"><span>圖文整合輸出・校園美感巡迴展</span></div>
           </div>
         </div>
-      </div>
-
-      <div class="speaker-bar">
-        <div class="speaker-quote">🎤 結語金句：「『原來看懂長篇文章並寫出自己的想法，這麼有成就感！』—— 走過心靈開門(Y)、數位賦能(E)、永續公民(S)，在錦和讀書，真好！JINHE, YES!」</div>
-        <a href="jinhego-yes.html" class="speaker-link">🏠 返回主頁探索 9 大專區 ↗</a>
       </div>
     </section>
 
@@ -1466,9 +1462,8 @@
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.s-dot');
     const totalSlides = slides.length;
-    const fontScales = [1, 1.12, 1.22];
-    const fontLabels = ['標準', '放大 112%', '特大 122%'];
-    let fontIdx = 0;
+    const fontScales = [0.8, 0.9, 1, 1.1, 1.2];
+    let fontIdx = 2; // Default 100% (1.0)
 
     function updateSlideUI() {
       slides.forEach((s, idx) => {
@@ -1493,10 +1488,20 @@
       goSlide(currentSlide + delta);
     }
 
-    function cycleFontSize() {
-      fontIdx = (fontIdx + 1) % fontScales.length;
-      document.documentElement.style.setProperty('--font-scale', fontScales[fontIdx]);
-      document.getElementById('fontBtn').textContent = '🔍 字體放大 (' + fontLabels[fontIdx] + ')';
+    function setFontScale(scaleVal) {
+      const idx = fontScales.indexOf(scaleVal);
+      if (idx !== -1) {
+        fontIdx = idx;
+      }
+      document.documentElement.style.setProperty('--font-scale', scaleVal);
+      document.querySelectorAll('.f-pct').forEach(btn => {
+        btn.classList.toggle('active', parseFloat(btn.getAttribute('data-scale')) === scaleVal);
+      });
+    }
+
+    function stepFontSize(delta) {
+      const nextIdx = Math.max(0, Math.min(fontScales.length - 1, fontIdx + delta));
+      setFontScale(fontScales[nextIdx]);
     }
 
     function toggleFullScreen() {
